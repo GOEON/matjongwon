@@ -5,6 +5,7 @@
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import time
 import csv
 import os
@@ -12,10 +13,11 @@ import os
 # open new windows by selenium
 def OpenNewWindows(url):
 
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    #driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 
     driver.get(url)
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(8)
     driver.find_element_by_xpath('//*[@id="onetrust-accept-btn-handler"]').click()
 
     return driver
@@ -34,24 +36,29 @@ csv_writer.writerow(header)
 url = "https://www.tripadvisor.com/Restaurants-g294197-Seoul.html"
 
 # default number of scraped restaurants
-num_restaurants = 5
+num_restaurants = 60
+ 
+# number of restaurants in one page
+num_restaurants_page = 30
 
 word = "rated"
-driver = webdriver.Chrome(ChromeDriverManager().install())
+#driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 
 driver.get(url)
 
-driver.implicitly_wait(10)
+driver.implicitly_wait(8)
 driver.find_element_by_xpath('//*[@id="onetrust-accept-btn-handler"]').click()
 
 # Need time to load the page.
 time.sleep(2) 
 
-restaurant_list = driver.find_elements_by_xpath(".//div[@data-test-target='restaurants-list']")
-
 for i in range(num_restaurants):
 
+    restaurant_list = driver.find_elements_by_xpath(".//div[@data-test-target='restaurants-list']")
+
     list_name = '{}_list_item'.format(str(i+1))
+
     restaurant = restaurant_list[0].find_element_by_xpath(".//div[@data-test='{}']".format(list_name))
     link = restaurant.find_element_by_xpath(".//a[@class='Lwqic Cj b']").get_attribute('href')
 
@@ -78,10 +85,25 @@ for i in range(num_restaurants):
     rating = description[end_index + 1:].split(' ')[0]
 
     print('restaurant : {} '.format(title))
- 
-    csv_writer.writerow([title, address, rating, photo_links[0], photo_links[1]]) 
+    
+    if len(photo_links) >= 2:
+        csv_writer.writerow([title, address, rating, photo_links[0], photo_links[1]]) 
+    elif len(photo_links) == 1:
+        csv_writer.writerow([title, address, rating, photo_links[0], ""]) 
+    else:
+        csv_writer.writerow([title, address, rating, "", ""]) 
 
     tmp_driver.close()
+
+    # when scrap all restaurants in one page, need to go next page
+    if (i + 1) % num_restaurants_page == 0:
+
+        next_page_container = driver.find_element_by_xpath(".//div[@class='unified pagination js_pageLinks']")
+        next_page_container.find_element_by_xpath(".//a[@class='nav next rndBtn ui_button primary taLnk']").click()
+
+        time.sleep(5) 
+
+
 
 driver.close()
 csv_file.close()

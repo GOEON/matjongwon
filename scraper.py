@@ -1,109 +1,167 @@
 # scraping TripAdvisor restaurants
-# scraping contents : 이름, 위치, 평가, 사진
 # save reviews.csv in script directory 
 # you can set number of restaurants to change num_restaurants value
+
+'''
+contents
+name : String
+category : string[] - 식당 유형
+address : string
+opening_hours : string
+score : dictonary (str : str) {"kakao_map":"score", "tripadvisor": "score", "google_map" : "score"}  
+menu : dictonary ( str : str) {"음식" : "가격"}
+url : string - 식당 링크
+reviews : string - 리뷰 링크
+
+
+'''
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from selenium.webdriver.common.by import By
 import time
-import csv
 import os
+import json
 
 # open new windows by selenium
 def OpenNewWindows(url):
 
-    #driver = webdriver.Chrome(ChromeDriverManager().install())
-    driver = webdriver.Edge(EdgeChromiumDriverManager().install())
+	#driver = webdriver.Chrome(ChromeDriverManager().install())
+	driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 
-    driver.get(url)
-    driver.implicitly_wait(8)
-    driver.find_element_by_xpath('//*[@id="onetrust-accept-btn-handler"]').click()
+	driver.get(url)
+	driver.implicitly_wait(3)
+	driver.find_element_by_xpath('//*[@id="onetrust-accept-btn-handler"]').click()
 
-    return driver
+	return driver
 
-# default path to file to store data
-path_to_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "reviews.csv")
-
-# Open the file to save the review
-csv_file = open(path_to_file, 'w', encoding="utf-8")
-csv_writer = csv.writer(csv_file)
-
-header = ['name', 'address', 'raiting', 'photo1', 'photo2']
-csv_writer.writerow(header) 
+contents = []
 
 # default tripadvisor website of restaurant
-url = "https://www.tripadvisor.com/Restaurants-g294197-Seoul.html"
+#url = "https://www.tripadvisor.com/Restaurants-g294197-Seoul.html"
+#url = "https://www.tripadvisor.com/Restaurants-g294197-oa180-Seoul.html"#EATERY_LIST_CONTENTS
+#url = "https://www.tripadvisor.com/Restaurants-g294197-zfn15565993-Seoul.html" #Gangnam-gu Restaurants
+url = "https://www.tripadvisor.co.kr/Restaurants-g294197-zfn15565993-Seoul.html" # Korean gangnam-gu restaurants link
 
 # default number of scraped restaurants
-num_restaurants = 60
+num_restaurants = 50
  
 # number of restaurants in one page
 num_restaurants_page = 30
 
-word = "rated"
+split_word = ":"
 #driver = webdriver.Chrome(ChromeDriverManager().install())
 driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 
 driver.get(url)
 
-driver.implicitly_wait(8)
+driver.implicitly_wait(3)
 driver.find_element_by_xpath('//*[@id="onetrust-accept-btn-handler"]').click()
 
 # Need time to load the page.
-time.sleep(2) 
+time.sleep(0.5) 
+
 
 for i in range(num_restaurants):
 
-    restaurant_list = driver.find_elements_by_xpath(".//div[@data-test-target='restaurants-list']")
+	restaurant_list = driver.find_elements_by_xpath(".//div[@data-test-target='restaurants-list']")
 
-    list_name = '{}_list_item'.format(str(i+1))
+	list_name = '{}_list_item'.format(str(i+1))
 
-    restaurant = restaurant_list[0].find_element_by_xpath(".//div[@data-test='{}']".format(list_name))
-    link = restaurant.find_element_by_xpath(".//a[@class='Lwqic Cj b']").get_attribute('href')
+	restaurant = restaurant_list[0].find_element_by_xpath(".//div[@data-test='{}']".format(list_name))
+	link = restaurant.find_element_by_xpath(".//a[@class='Lwqic Cj b']").get_attribute('href')
 
-    tmp_driver = OpenNewWindows(link)
+	tmp_driver = OpenNewWindows(link)
+	review_url = tmp_driver.current_url + "#REVIEWS"
 
-    titles = tmp_driver.find_elements_by_xpath(".//meta[@name='keywords']")[0].get_attribute('content').split(',')
-    description = tmp_driver.find_elements_by_xpath(".//meta[@name='description']")[0].get_attribute('content')
-    address = tmp_driver.find_elements_by_xpath(".//a[@class='AYHFM']")[1].text
+	restaurant_name = ""
+	score = ""
+	categories = []
+	website = ""
+	opening_hours = ""
+	address = ""
 
-    photo_container = tmp_driver.find_elements_by_xpath(".//div[@class='large_photo_wrapper   ']")
+	try:
+		for content in tmp_driver.find_elements_by_xpath(".//meta[@name='keywords']"):
+			restaurant_name = content.get_attribute('content').split(',')[0]
+	except:
+		restaurant_name = ""
 
-    photo_links = []
+	try:
+		for content in tmp_driver.find_elements_by_xpath(".//*[@class='UctUV d H0']"):
+			review_rating = content.get_attribute('aria-label')
+			score = review_rating.split(' ')[-1]
+	except:
+		score = ""
 
-    for photo in photo_container:
+	try:
+		for content in tmp_driver.find_elements_by_xpath(".//a[@class='dlMOJ']"):
+			categories.append(content.text)
+	except:
+		categories = []
 
-        photo_link = photo.find_element_by_xpath(".//img[@class='basicImg']").get_attribute('src')
+	try:
+		for content in tmp_driver.find_elements_by_xpath(".//*[@class='YnKZo Ci Wc _S C AYHFM']"):
+			website = content.get_attribute('href')
+	except:
+		website = ""
 
-        photo_links.append(photo_link)
+	try:
+		for content in tmp_driver.find_elements_by_xpath(".//*[@class='yEWoV']"):
+			address = content.text
+			break
+	except:
+		address = ""
 
-    title = titles[0]
-    
-    start_index = description.find(word)
-    end_index = start_index + len(word)
-    rating = description[end_index + 1:].split(' ')[0]
+	# change live time the opening hours 
+	# for content in tmp_driver.find_elements_by_xpath(".//span[@class='mMkhr']"):
+	#     opening_hours = content.text
 
-    print('restaurant : {} '.format(title))
-    
-    if len(photo_links) >= 2:
-        csv_writer.writerow([title, address, rating, photo_links[0], photo_links[1]]) 
-    elif len(photo_links) == 1:
-        csv_writer.writerow([title, address, rating, photo_links[0], ""]) 
-    else:
-        csv_writer.writerow([title, address, rating, "", ""]) 
+	#     start_index = opening_hours.find(split_word)
+	#     opening_hours = opening_hours[start_index + 2:]
 
-    tmp_driver.close()
+	#     break
 
-    # when scrap all restaurants in one page, need to go next page
-    if (i + 1) % num_restaurants_page == 0:
+	#titles = tmp_driver.find_elements_by_xpath(".//meta[@name='keywords']")[0].get_attribute('content').split(',')
+	#review_rating = tmp_driver.find_elements_by_xpath(".//*[@class='UctUV d H0']")[0].get_attribute('aria-label')
+	#categories = tmp_driver.find_elements_by_xpath(".//div[@class='SrqKb']")[0].text.split(',')
+	#website = tmp_driver.find_elements_by_xpath(".//*[@class='YnKZo Ci Wc _S C AYHFM']")[0].get_attribute('href')
+	#opening_hours = tmp_driver.find_elements_by_xpath(".//span[@class='mMkhr']")[0].text
 
-        next_page_container = driver.find_element_by_xpath(".//div[@class='unified pagination js_pageLinks']")
-        next_page_container.find_element_by_xpath(".//a[@class='nav next rndBtn ui_button primary taLnk']").click()
+	#address = tmp_driver.find_elements_by_xpath(".//a[@class='AYHFM']")[1].text
+	#score = review_rating.split(' ')[-1]    
 
-        time.sleep(5) 
+	#print('restaurant : {} '.format(restaurant_name))
+	
+	current_content = {}
+	current_content["name"] = restaurant_name
+	current_content["address"] = address
+	current_content["score"] = score
+	current_content["reviews"] = review_url
+	current_content["category"] = categories[1:]
+	current_content["url"] = website
+	current_content["menu"] = ""
+	current_content["opening_hours"] = opening_hours
 
+	tmp_driver.close()
+
+	# when scrap all restaurants in one page, need to go next page
+	if (i + 1) % num_restaurants_page == 0:
+
+		next_page_container = driver.find_element_by_xpath(".//div[@class='unified pagination js_pageLinks']")
+		next_page_container.find_element_by_xpath(".//a[@class='nav next rndBtn ui_button primary taLnk']").click()
+
+		time.sleep(1) 
+
+
+	print(current_content)
+	contents.append(current_content)
 
 
 driver.close()
-csv_file.close()
+
+#print(contents)
+
+with open('tripadvisor_contents.json', 'w', encoding='utf-8') as json_file:
+    json.dump(contents, json_file , ensure_ascii=False)

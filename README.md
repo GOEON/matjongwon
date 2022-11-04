@@ -1,14 +1,16 @@
 # matjongwon
 맛집 종합원
 
-## Scraping Trip Advisor
+## Scrapers
 
-이 브랜치는 Trip Advisor 를 파이썬의 selenium 모듈을 통해 크롤링 하기 위해서 생성하였다.
-간단한 설명은 scraper.py 코드에 적혀있다.
-크롤링한 데이터는 reviews.csv 에 저장되며, 저장되는 데이터는 [이름, 위치, 평가, 사진] 이다.
+이 브랜치는 네이버, 카카오, 트립어드바이저 그리고 구글 맵(아직 없음) 등의 데이터를 크롤링 하기 위해서 생성하였다.
+크롤링한 데이터는 [data](https://github.com/ComTalk/matjongwon/tree/scrapers/data)에 json 파일로 저장되며,
+json format 은 [여기](https://github.com/ComTalk/matjongwon/wiki/json-format) 에서 확인 가능하다.
 
 ### Prerequisite
 
 * Python 3.7+
 * Selenium 3.141.0
 * Webdriver_manager 3.8.3
+* urllib3 1.26.9
+* requests 2.28.0

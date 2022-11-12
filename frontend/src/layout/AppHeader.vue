@@ -1,54 +1,67 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+    <b-navbar toggleable="sm" variant="light">
+      <b-navbar-toggle @click="toggleSidebar"></b-navbar-toggle>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-brand href="/">맛종원</b-navbar-brand>
 
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item href="#">Link</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
-        </b-navbar-nav>
-
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-nav-form>
-            <b-form-input
-              size="sm"
-              class="mr-sm-2"
-              placeholder="Search"
-            ></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit"
-              >Search</b-button
-            >
-          </b-nav-form>
-
-          <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item href="#">EN</b-dropdown-item>
-            <b-dropdown-item href="#">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>
-
-          <b-nav-item-dropdown right>
-            <!-- Using 'button-content' slot -->
-            <template #button-content>
-              <em>User</em>
-            </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-          </b-nav-item-dropdown>
-        </b-navbar-nav>
-      </b-collapse>
+      <b-nav-form class="w-50">
+          <b-form-input placeholder="검색"></b-form-input>
+        </b-nav-form>
+        
+        <b-nav tabs pills>
+          <b-nav-item size="sm" :active="tabActiveKey === 1" @click="() => {tabActiveKey = 1}">지도</b-nav-item>
+          <b-nav-item size="sm" :active="tabActiveKey === 2" @click="() => {tabActiveKey = 2}">목록</b-nav-item>
+        </b-nav>
+      <b-navbar-nav>
+        <b-collapse is-nav>
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+              <b-nav-item href="#">로그인</b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar-nav>
+      
+      <b-sidebar>
+        <div class="p-3">
+          <h4 id="sidebar-no-header-title">Custom header sidebar</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+          </p>
+          <nav class="mb-3">
+            <b-nav vertical>
+              <b-nav-item active @click="hide">Active</b-nav-item>
+              <b-nav-item href="#link-1" @click="hide">Link</b-nav-item>
+              <b-nav-item href="#link-2" @click="hide">Another Link</b-nav-item>
+            </b-nav>
+          </nav>
+          <b-button variant="primary" block @click="hide">Close Sidebar</b-button>
+        </div>
+      </b-sidebar>
     </b-navbar>
   </div>
 </template>
 <script>
-
 export default {
-  components: {
+  data() {
+    return {
+        tabActiveKey: 1,
+        sidebarActive: false,
+    }
   },
+  methods: {
+    toggleSidebar() {
+      this.sidebarActive = !this.sidebarActive;
+    }
+  }
 };
 </script>
-<style></style>
+<style>
+@media only screen and (max-width: 576px) {
+  .navbar-brand {
+    display: none !important;
+  }
+}
+
+</style>

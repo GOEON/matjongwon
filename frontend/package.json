@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --mode development",
+    "serve": "vue-cli-service serve --mode development --port 8080",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "bootstrap-vue-3": "^0.3.12",
+    "bootstrap-vue-3": "^0.4.6",
     "core-js": "^3.8.3",
     "flatpickr": "^4.5.1",
     "nouislider": "^11.1.0",
     "vue": "^3.2.41",
+    "vue-awesome-sidebar": "^1.1.9",
     "vue-flatpickr-component": "^9.0.8",
     "vue-router": "^4.0.13",
     "vue3-lazyload": "^0.3.6",

@@ -210,5 +210,5 @@ if __name__ == "__main__":
 
 	driver.close()
 
-	with open('kakaomap_contents.json', 'w', encoding='utf-8') as json_file:
+	with open('data/kakaomap_contents.json', 'w', encoding='utf-8') as json_file:
 		json.dump(contents, json_file , ensure_ascii=False)

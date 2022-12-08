@@ -67,12 +67,21 @@ for page_num in range(0, page_nums):
 			for i in range(1, len(elms)):
 				opening_hours.append(elms[i].text)
 
+			opening_hours[-1] = opening_hours[-1][:-3]
+
 		except:
 			opening_hours = []
 
 		# remove 접기 word
-		opening_hours[-1] = opening_hours[-1][:-3]
 		#print(opening_hours)
+
+		try :
+			driver.find_elements_by_xpath(".//*[@class='xHaT3']")[0].click()
+			time.sleep(1)
+			description = driver.find_elements_by_xpath(".//*[@class='zPfVt']")[0].text
+
+		except:
+			description = ''
 
 		driver.close()
 
@@ -84,11 +93,13 @@ for page_num in range(0, page_nums):
 		results['menu'] = data["menuInfo"]
 		results['url'] = data["homePage"]
 		results['reviews'] = "https://m.place.naver.com/restaurant/{}/review/visitor".format(str(id))
+		results['thumbnails'] = data['thumUrls']
+		results['description'] = description
 
 		contents.append(results)
 		print(results)
 
 		time.sleep(1)
 
-with open('naver_contents.json', 'w', encoding='utf-8') as json_file:
+with open('data/naver_contents.json', 'w', encoding='utf-8') as json_file:
     json.dump(contents, json_file , ensure_ascii=False)

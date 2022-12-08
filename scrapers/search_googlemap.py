@@ -45,7 +45,7 @@ if __name__ == "__main__":
 		finally:
 			time.sleep(3)
 
-		# address : Io6YTe fontBodyMedium
+		# address 
 		address_list = driver.find_elements_by_xpath(".//div[@class='Io6YTe fontBodyMedium']")
 		address = ''
 
@@ -56,16 +56,23 @@ if __name__ == "__main__":
 
 		if address == '':
 			print('no address found')
+			driver.close()
 			continue
 
 		print(restaurant_name)
 		#print(address)
 
-		current_url = driver.current_url
-		start_index = current_url.index('@')
-		tmp_coordinates = current_url[start_index+1:].split(',')
-		latitude = tmp_coordinates[0]
-		longitude = tmp_coordinates[1]
+		try:
+			current_url = driver.current_url
+			time.sleep(1)
+			start_index = current_url.index('@')
+			tmp_coordinates = current_url[start_index+1:].split(',')
+			latitude = tmp_coordinates[0]
+			longitude = tmp_coordinates[1]
+		except:
+			print('cannot find coordinates')
+			driver.close()
+			continue
 
 		# print(latitude)
 		# print(longitude)
@@ -77,9 +84,14 @@ if __name__ == "__main__":
 		#print(score)
 
 		# review link
-		driver.find_elements_by_xpath(".//button[@class='HHrUdb fontTitleSmall rqjGif']")[0].click()
-		time.sleep(2)
-		review_link = driver.current_url
+		try:
+			driver.find_elements_by_xpath(".//button[@class='HHrUdb fontTitleSmall rqjGif']")[0].click()
+			time.sleep(2)
+			review_link = driver.current_url
+		except:
+			print('cannot click review')
+			driver.close()
+			continue
 
 		#print(review_link)
 
@@ -94,5 +106,5 @@ if __name__ == "__main__":
 		print(content)
 
 
-with open('data/new_combine_contents.json', 'w', encoding='utf-8') as json_file:
+with open('data/final_contents.json', 'w', encoding='utf-8') as json_file:
 		json.dump(combine_contents, json_file , ensure_ascii=False)

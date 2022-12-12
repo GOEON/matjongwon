@@ -13,32 +13,20 @@ export default new Router({
     {
       path: "/",
       name: "main",
-      redirect: "/map",
       components: {
         header: AppHeader,
         default: MainMap,
         footer: AppFooter
-      },
-      children: [
-        {
-          path: '/map',
-          name: 'map',
-          components: {
-            header: AppHeader,
-            default: MainMap,
-            footer: AppFooter
-          },
-        },
-        {
-          path: '/list',
-          name: 'list',
-          components: {
-            header: AppHeader,
-            default: MainList,
-            footer: AppFooter
-          },
-        },
-      ]
+      }
     },
+    {
+      path: '/list',
+      name: 'list',
+      components: {
+        header: AppHeader,
+        default: MainList,
+        footer: AppFooter
+      },
+    }
   ]
 })

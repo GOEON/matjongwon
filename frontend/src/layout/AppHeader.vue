@@ -42,6 +42,8 @@ export default {
   },
 
   methods: {
+    ...mapMutations(['setGnb']),
+
     clickGnb(gnb) {
       this.setGnb(gnb);
     }

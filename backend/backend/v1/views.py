@@ -6,7 +6,7 @@ from .models import Place
 import json
 
 def placeRequest(request):
-    # Initialize parameters
+    # Initialize params
     query = request.GET.get('query', '강남구')
     page_num = int(request.GET.get('page', 1))
     page_size = int(request.GET.get('size', 10))
@@ -27,8 +27,15 @@ def placeRequest(request):
     document = list(place_object.values())
 
     # HttpResponse : creating a dictionary
+    #response = {"meta": meta, "document" : document}
     response_data = {}
     response_data['meta'] = meta
     response_data['document'] = document
 
+    # return HttpResponse(json.dumps(response_data),
+    #                    content_type="application/json")
     return JsonResponse(response_data, safe=False, json_dumps_params={'ensure_ascii': False}, status=200)
+#    return HttpResponse(document, content_type="text/json-comment-filtered")
+#    return HttpResponse("Hello, world. You're at the Matjongwon v1 index page. " + 
+#                        query + " " + str(page_num) + " " + str(page_size) + '\n' + 
+#                        json.dumps(meta))

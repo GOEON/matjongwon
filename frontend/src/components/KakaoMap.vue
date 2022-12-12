@@ -1,7 +1,5 @@
 <template>
-  <component>
-    <div id="kakaomap"></div>
-  </component>
+  <div id="kakaomap"></div>
 </template>
 
 <script>

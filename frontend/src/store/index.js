@@ -16,7 +16,7 @@ export default new Vuex.Store({
      * @param state 저장소
      * @param id 선택된 template type
      */
-     setGnb(state, id) {
+    setGnb(state, id) {
       state.gnb = id;
     },
   }

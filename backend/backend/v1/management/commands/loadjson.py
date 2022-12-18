@@ -8,8 +8,24 @@ class Command(BaseCommand):
 
     DATA_FILE_PATH = os.path.join('../..', 'scrapers', 'data', 'final_contents.json')
 
+    def add_argument(self, parser):
+        parser.add_argument(
+            '-f',
+            '--file',
+            action='store',
+            help='JSON data file location',
+        )
+
+
     def handle(self, *args, **options):
-        with open(self.DATA_FILE_PATH, 'r') as f:
+        json_file = self.DATA_FILE_PATH
+
+        option_file = options.get('file')
+        if option_file:
+            if os.path.exists(option_file) and os.path.isfile(option_file):
+                json_file = option_file
+
+        with open(json_file, 'r') as f:
             data = json.load(f)
             objects = []
             for place in data:

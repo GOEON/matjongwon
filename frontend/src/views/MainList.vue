@@ -10,6 +10,8 @@
               :menu="item.menu"
               :url="item.url"
               :reviews="item.reviews"
+              :thumbnails="item.thumbnails"
+              :description="item.description"
       >
       </StoreCard>
   </b-card-group>
@@ -25,34 +27,1499 @@ export default {
   data() {
     return {
       stores: [
-      { 
-          name : "스케줄 청담", 
-          category : ["양식"], 
-          address : "서울 강남구 선릉로152길 37 1층", 
-          opening_hours : "매일 11:00~01:00", 
-          score : {
-            kakao_map:"3.8", 
-            tripadvisor: "4.3", 
-            google_map : "3.9"
-          },
-          menu : {'Americano': '4,000', 'Cafe Latte': '5,000'}, 
-          url : "https://naver.me/GfaMZAvk", 
-          reviews : "https://pcmap.place.naver.com/restaurant/1793289940/review?entry=bmp&from=map&fromPanelNum=1&ts=1666535787792" 
+    {
+        "name": "테라스룸",
+        "category": [
+            "음식점",
+            "양식"
+        ],
+        "address": "서울특별시 강남구 청담동 90-19 올리브빌딩 테라스룸",
+        "opening_hours": [
+            "목\n11:30 - 새벽 02:00",
+            "금\n11:30 - 새벽 02:00",
+            "토\n11:30 - 새벽 02:00",
+            "일\n11:30 - 새벽 02:00",
+            "월\n정기휴무 (매주 월요일)",
+            "화\n11:30 - 새벽 02:00",
+            "수\n11:30 - 새벽 02:00",
+            "- 런치 L.O.14:45 / 디너 L.O. 20:30"
+        ],
+        "score": {
+            "navermap": "4.3",
+            "kakaomap": "3.3"
         },
-        { 
-          name : "중앙해장", 
-          category : ["해장국", "국밥"], 
-          address : "서울 강남구 영동대로 86번길 17 육인빌딩 1층", 
-          opening_hours : "매일 11:00~22:00", 
-          score : {
-            kakao_map: "3.8",
-            tripadvisor: "4.4", 
-            google_map : "3.8"
-           },
-           menu : {'한우양선지 해장국': '12,000', '한우내장탕': '15,000', '한우1++양지곰탕': '14,000', '한우우족탕': '21,000', '한우1++양지수육 (중)': '42,000', '곱창전골 (중)': '65,000'}, 
-           url : "https://naver.me/5Rct4XVA", 
-           reviews : "https://pcmap.place.naver.com/restaurant/1493771409/review?entry=bmp&from=map&fromPanelNum=1&ts=1666535835165" }
-      ],
+        "menu": "Aperol Spritz | 아페롤 스프리츠 22,000 | Negroni | 네그로니 24,000",
+        "url": "http://www.instagram.com/terraceroom.seoul",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1724662353/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1793492580#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221205_189/1670232520719FBii0_JPEG/KakaoTalk_Photo_2022-11-29-15-07-33-1.jpeg",
+            "https://ldb-phinf.pstatic.net/20221205_245/1670232520886zhJjq_JPEG/KakaoTalk_Photo_2022-11-29-15-07-33-2.jpeg",
+            "https://ldb-phinf.pstatic.net/20221205_155/1670232520727MvMBt_JPEG/KakaoTalk_Photo_2022-11-29-15-07-33-3.jpeg"
+        ],
+        "description": "테라스룸은 여행지의 경험과 문화를 선사하는 라이프스타일 공간 브랜드입니다.\n\n음식은 레스토랑에서, 술은 바에서, 커피는 카페에서 소비하는 전형적인 리테일 공간에서 벗어나 소비자들의 라이프 타임에 적합한 음식과 주류, 음악, 서비스, 엔터테인먼트까지 경험할 수 있도록 고안되었습니다.\n\n이름에서도 알 수 있듯 야외(Terrace)와 실내(Room) 공간의 조화를 통해 한 공간에서도 다양한 분위기를 느낄 수 있다는 점은 테라스룸만의 매력. 낮에는 햇살과 함께 브런치를 즐기는 유럽의 테라스를, 밤에는 다이닝 홀과 클래식 바가 결합된 고급 호텔의 모습과 분위기를 연출합니다.\n\n테라스룸의 CLASSIC BAR는 국내에서 쉽게 찾기 힘든 유니크한 바틀을 다수 포함한 다양하고 풍부한 주류 라인업을 보유하고 있으며, 밤에 국한된 주류의 소비를 넘어 낮에도 자연스럽게 주류를 즐기는 공간과 문화를 전달하기 위해 다양한 형태의 BAR를 선보이고 있습니다.\n\n유럽의 식전주, 낮술 문화로 알려진 아페리티보 (Aperitivo) 문화, Aperol을 중심으로 한 스프리츠 (Spritz) 칵테일과 Campari와 같은 비터 스윗(BitterSweet) 등 국내에서는 아직 다소 생경할 수 있는 유럽의 주류 문화를 자연스럽게 녹여내어, 테라스룸 바에서 즐기는 술 한잔으로도 여행과 같은 경험을 제공합니다.\n\n감각적인 큐레이터들이 엄선한 음악과 취향, 라이프스타일을 담아낸 테라스룸만의 큐레이션 채널, 테라스룸 에디션을 운영하고 있습니다. 순간의 분위기, 상황에 맞는 음악과 큐레이션을 통해 테라스룸이 추구하는 공간을 경험할 수 있습니다.\n\n테라스룸을 찾는 이들에게 고급스럽고 이국적인 분위기에서 좋은 식재료로 선별된 유러피안 음식과 커피, 와인, 칵테일을 즐기는 공간, 나아가 좋은 취향과 라이프스타일을 향유하는 사람들이 소중히 시간을 보낼 수 있는 공간으로 인식되길 바랍니다."
+    },
+    {
+        "name": "숨스",
+        "category": [
+            "술집",
+            "요리주점"
+        ],
+        "address": "서울특별시 강남구 논현동 6-5 1층",
+        "opening_hours": [
+            "금\n15:00 - 24:00",
+            "토\n15:00 - 24:00",
+            "일\n정기휴무 (매주 일요일)",
+            "월\n15:00 - 24:00",
+            "화\n15:00 - 24:00",
+            "수\n15:00 - 24:00",
+            "목\n15:00 - 24:00"
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "0.0"
+        },
+        "menu": "차돌 골뱅이 비빔면 23,000 | 숨스 한우 1++ 육회 33,000 | 닭 목살 구이 25,000 | 스미소 수비드 항정살 참나물 무침 30,000 | 홍합 봉골레 파스타 23,000 | 부라타 샐러드 17,000 | 겨울 방어 회무침(계절) 19,000 | 겨울 통영 굴(계절) 12,000 | 그린 샐러드 16,000 | 울릉도 오징어 숙회 12,000 | 비프칠리 포테이토 13,000 | 꿀 토마토 11,000 | 스위스 치즈 감자전 22,000 | 살치살 스테이크 32,000 | 바닐라아이스크림 (후식) 5,000 | 오레오 튀김 2ps 3,000",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1328337783/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1613121894#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221204_190/16701532913043hpOF_JPEG/2615C400-EB22-43DB-96BA-2DB1D852B06B.jpeg",
+            "https://ldb-phinf.pstatic.net/20221204_70/16701532913410i1pR_JPEG/A43BC8A1-54B7-4FED-B37D-056F06B0538E.jpeg",
+            "https://ldb-phinf.pstatic.net/20221204_8/16701532913057P55n_JPEG/B15CCE3D-5157-4C6B-9DFA-EE880C52025D.jpeg"
+        ],
+        "description": "숨스는 편안하고 즐거운 공간에서 만들어내는\n맛있는 요리와 술이 있는 요리주점 입니다.\n요리 경험이 많은 오너셰프가 직접 요리하는 만큼 믿고\n찾아오셔도 됩니다"
+    },
+    {
+        "name": "도명골 청국장",
+        "category": [
+            "한식",
+            "찌개,전골"
+        ],
+        "address": "서울특별시 강남구 삼성동 166-3 101호 도명골 청국장",
+        "opening_hours": [
+            "금\n10:30 - 21:50\n15:00 - 17:00 브레이크타임\n14:00, 20:50 라스트오더",
+            "토\n10:30 - 21:00\n15:00 - 17:00 브레이크타임\n14:00, 20:00 라스트오더",
+            "일\n정기휴무 (매주 일요일)",
+            "월\n10:30 - 21:50\n15:00 - 17:00 브레이크타임\n14:00, 20:50 라스트오더",
+            "화\n10:30 - 21:50\n15:00 - 17:00 브레이크타임\n14:00, 20:50 라스트오더",
+            "수\n10:30 - 21:50\n15:00 - 17:00 브레이크타임\n14:00, 20:50 라스트오더",
+            "목\n10:30 - 21:50\n15:00 - 17:00 브레이크타임\n14:00, 20:50 라스트오더"
+        ],
+        "score": {
+            "navermap": "4.61",
+            "kakaomap": "4.4"
+        },
+        "menu": "청국장 + 육회비빔밥 10,500 | 청국장 + 생선 10,500 | 청국장 + 제육 10,500 | 청국장 + 수육 10,500",
+        "url": "http://instagram.com/domyungol",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1398214763/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/2130836465#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20220620_278/1655723246520Kj34h_JPEG/90F8386E-5A8F-4D54-B5EC-B463E57A5F65.jpeg",
+            "https://ldb-phinf.pstatic.net/20220620_222/1655723240950zQSJb_JPEG/8F7178E1-F78A-409B-B369-17042DB9BF99.jpeg",
+            "https://ldb-phinf.pstatic.net/20200601_101/1591006180486hwWS9_JPEG/vThyC-PqHHNZoDeX--KMpjU2.jpg"
+        ],
+        "description": "(유료)주차는 삼성동 170-1 또는 노상 주차장을 이용해 주셔야 합니다! 먹을텐데 유튜브 방송이후 전화 문의가 너무 많아 전화를 못받는경우가 종종있습니다. 죄송합니다!\n\n도명골에 사시는 저희 할머니가 직접 띄운 청국장으로 만들어 시골 할머니의 손맛과 정성이 담겨 있는 한 끼를 맛 볼 수 있습니다. 직접 띄운 청국장은 집에서도 드실 수 있도록 따로 판매하고 있으니 많이 찾아주세요.\n청국장 1kg (10인분) 15,000원"
+    },
+    {
+        "name": "노티드 청담",
+        "category": [
+            "카페,디저트",
+            "카페"
+        ],
+        "address": "서울특별시 강남구 신사동 654-9 1층",
+        "opening_hours": [
+            "매일\n09:00 - 21:00\n접기",
+            "전지적참견시점 190회, 22.03.12.\n2022년 3월 12일\n 도넛\n펼쳐보기",
+            "",
+            "",
+            ""
+        ],
+        "score": {
+            "navermap": "4.44",
+            "kakaomap": "3.7"
+        },
+        "menu": "우유 생크림 도넛 3,500 | 클래식 바닐라 도넛 3,000 | 얼그레이 도넛 3,000 | 초코푸딩 도넛 3,500 | 라즈베리 도넛 3,000 | 카야버터 도넛 3,500 | 블루베리 크림치즈 도넛 3,500 | 레몬슈가 도넛 3,500 | 민트초코 도넛 3,500 | 스트로베리 크림 도넛 3,800 | 레드베리 도넛 3,800 | 호지밀크 도넛 3,800 | 시나몬 먼치 도넛 3,800 | 피스타치오 크림 도넛 3,800 | 레인보우 시리얼 도넛 3,800 | 헤이즐넛 초코볼 도넛 3,800 | 스트로베리 밀키크로플 4,200 | 몽블랑 크로플 3,500 | 누텔라 크림 크로플 3,500 | 딸기 크루아상 4,500 | 오레오 크루아상 4,500 | 카야 크루아상 4,300 | 딸기 크리미 4,000 | 블루베리 크리미 4,000 | 피그 잠봉 뵈르 4,500 | 바닐라 푸딩 파이 2,500 | 라이스 크랙치즈볼 4,000 | 우유니 카페번 3,800 | 말돈소금빵 3,500 | 라이스 치즈 소금빵 3,500 | 에브리띵 소금빵 3,800 | 밀크티 페이글 3,500 | 솔티 밀크 페이글 3,500 | 초코홀릭 페이글 3,500 | 뉴욕버터 밀크스콘 3,500 | 쿠키&초코파이 2,500 | 화이트 브라우니 5,200 | 다크 피칸 브라우니 5,200 | 옐로우 스마일 케이크 16,000 | 망고 스마일 케이크 16,000 | 클로버 스마일 케이크 16,000 | 퓨어 스트로베리 주니어 16,000 | 크러쉬드 초코 케이크 18,000 | 해피 버니 케이크 18,000 | 브라운 베어 케이크 16,000 | 스마일 고스트 케이크 18,000 | 바스크 치즈 케이크 16,000 | 그랑몽블랑 16,000 | 버번 피칸 파이 18,000 | 마스카포네 클라우드 케이크 18,000 | 누룽지 솔티 카라멜 케이크 15,000 | 바닐라 생크림 케이크 13,000 | 시나몬 트리 라떼 (HOT) 6,000 | 시나몬 트리 라떼 (ICE) 6,000 | 크리스마스 유자 뱅쇼 (HOT) 6,300 | 크리스마스 유자 뱅쇼 (ICE) 6,300 | 화이트 초콜릿 민트티 (HOT) 6,300 | 화이트 초콜릿 민트티 (ICE) 6,300 | 에스프레소 3,000 | 아메리카노 (HOT) 4,000 | 아메리카노 (ICE)",
+        "url": "https://bit.ly/cafeknotted_gffg",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/895457986/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/348276052#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221202_128/1669974818349aWMAe_PNG/%B3%EB%C6%BC%B5%E5-%C3%BB%B4%E3-%C6%C4%BB%E7%B5%E5_-_%281%29.png",
+            "https://ldb-phinf.pstatic.net/20221202_55/1669972473310G2n3l_JPEG/%B3%EB%C6%BC%B5%E5_%C3%BB%B4%E3_%286%29.jpg",
+            "https://ldb-phinf.pstatic.net/20221129_293/1669688768895nXF0F_JPEG/310646020_1146744622887188_5682747776639440455_n.jpg"
+        ],
+        "description": "안녕하세요. 사람과 사람, 사람과 디저트를 잇는 프리미엄 디저트 카페 노티드입니다. 크리스마스 케이크 예약 소식은 공식 인스타그램(@cafeknotted)을 통해 확인해주세요!"
+    },
+    {
+        "name": "트라가 삼성점",
+        "category": [
+            "음식점",
+            "스페인음식"
+        ],
+        "address": "서울특별시 강남구 삼성동 144-17 골든타워 지하1층",
+        "opening_hours": [
+            "금\n11:00 - 22:00\n14:30 - 17:30 브레이크타임\n21:00 라스트오더",
+            "토\n11:00 - 22:00\n14:30 - 17:30 브레이크타임\n21:00 라스트오더",
+            "일\n정기휴무 (매주 일요일)",
+            "월\n11:00 - 22:00\n14:30 - 17:30 브레이크타임\n21:00 라스트오더",
+            "화\n11:00 - 22:00\n14:30 - 17:30 브레이크타임\n21:00 라스트오더",
+            "수\n11:00 - 22:00\n14:30 - 17:30 브레이크타임\n21:00 라스트오더",
+            "목\n11:00 - 22:00\n14:30 - 17:30 브레이크타임\n21:00 라스트오더"
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "5.0"
+        },
+        "menu": "트라가세트(2인) 69,000 | 트라가프리미엄세트(3~4인) 129,000 | 트라가 빠에야 30,000 | 치킨 빠에야 34,000 | 이베리코 목살 스테이크 30,000 | 감바스 피칸테 17,000 | 초리조감바스피칸테 21,000 | 샥슈카 17,000 | 깔라마리 안달루시아 24,000 | 뿔뽀 28,000 | 오일클램스튜 24,000 | 토마토클램스튜 24,000 | 하몽 샐러드 12,000 | 트라가샐러드 8,000 | 카이막 12,000 | 참피뇨네스 15,000 | 연어 세비체 18,000 | 연어세비체 18,000 | 부라타치즈&엑스트라버진 18,000 | 고르곤졸라피자 12,000 | 루꼴라 마리게리따 피자 18,000 | 쉬림프토마토파스타 18,000 | 알리오올리오(런치주문가능) 18,000 | 초리조 라구 파스타(런치주문가능) 18,000",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1326727196/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1465231347#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221122_130/1669114615887seRHs_JPEG/IMG_1950.JPG",
+            "https://ldb-phinf.pstatic.net/20221122_64/16691145865368EbWO_JPEG/IMG_1886.JPG",
+            "https://ldb-phinf.pstatic.net/20221122_105/166911480103225QtH_JPEG/IMG_2205.JPG"
+        ],
+        "description": "삼성에 위치한 강남 맛집 자연주의 스페인 레스토랑 트라가 (!traga) 입니다.\n원재료가 가진 신선함을 능가할 요리는 없다 라는 생각을 바탕으로,\n재료 본연의 가치를 최대한 살리기 위한 방향으로 요리하고 있습니다.\n\n저희 트라가에서 사용하는 모든 소스와 요리는 신선한 천연재료로 매일 직접 만들고 있습니다.\n해산물은 당일 받은 것을 당일 소모하는 것을 원칙으로 하며,\n24시간이 지나면 전량 폐기합니다."
+    },
+    {
+        "name": "꽁티드툴레아",
+        "category": [
+            "음식점",
+            "브런치"
+        ],
+        "address": "서울특별시 강남구 신사동 646-21",
+        "opening_hours": [
+            "금\n11:00 - 24:00",
+            "토\n11:00 - 24:00",
+            "일\n11:00 - 23:00",
+            "월\n11:00 - 24:00",
+            "화\n11:00 - 24:00",
+            "수\n11:00 - 24:00",
+            "목\n11:00 - 24:00",
+            "- 브레이크 타임(5시-6시) : 디저트 및 음료 주문가능"
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "3.3"
+        },
+        "menu": "커피 5,500 | Latte 7,000 | Affogato 7,500 | 아보카도토스트 14,000 | 통베이컨브리오슈와플 19,500 | 부라타샐러드 15,000 | 레몬엔초비파스타 18,000",
+        "url": "https://catchtable.co.kr/contedetulear",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1432373629/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/179244712#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20200914_239/1600012748465FVukt_JPEG/dlyCQ41XRzwZcpmE1sPYTpuY.jpeg.jpg"
+        ],
+        "description": "꽁티드툴레아는 향기 관련 제품을 판매하고 소개하는 브랜드 기반으로 브런치 및 와인을 즐길 수 있는 복합 문화 공간입니다. 다양하고 재밌는 음식들과 음료 그리고 꽁티 드 툴레아의 향과 함께 즐거운 시간을 보내시길 바랍니다."
+    },
+    {
+        "name": "페어링룸",
+        "category": [
+            "음식점",
+            "이탈리아음식"
+        ],
+        "address": "서울특별시 강남구 청담동 117-12 1층",
+        "opening_hours": [
+            "금\n11:00 - 22:30",
+            "토\n11:00 - 23:00",
+            "일\n11:00 - 23:00",
+            "월\n11:00 - 22:30",
+            "화\n11:00 - 22:30",
+            "수\n11:00 - 22:30",
+            "목\n11:00 - 22:30",
+            "- 주말 라스트오더 21:30"
+        ],
+        "score": {
+            "navermap": "4.49",
+            "kakaomap": "4.0"
+        },
+        "menu": "항정살 패퍼 메주 파스타 28,000 | 발사믹 관자와 감자 퓨레 31,000 | 리코타 올리브 깜빠뉴 18,500 | 스파이시 성게알 파스타 31,300 | 새우 스깜피 알리오 올리오 26,000 | 스파이시 치킨가라아게 24,000 | 보리굴비 녹차리조또 32,000 | 그린티 퐁당 & 통팥 양갱 14,200 | 현미크리스피와 아이스크림 14,200 | 에프터눈 티세트 42,000 | 슈 트라이플 12,600 | 그린티 퐁당&통팥양갱 14,200 | 솔티드 카라멜 퐁당과 누룽지 아이스크림 13,500 | 다크 초코 무스 범벅과 바닐라 이이스크림 14,000 | 보늬밤&플란 13,000",
+        "url": "https://app.catchtable.co.kr/ct/main/searchRedirect?key=0921_cheeseroom",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/38692429/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1851273390#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20161017_60/1476671455100RJ2tX_JPEG/176967516074246_1.jpeg",
+            "https://ldb-phinf.pstatic.net/20170517_254/1495006698784GmI40_JPEG/186467566838541_1.jpeg",
+            "https://ldb-phinf.pstatic.net/20170517_256/1495006699138IIlym_JPEG/186467566838541_2.jpeg"
+        ],
+        "description": "음식과 와인을 페어링하고 \n디저트와 티를 페어링하는 곳\n동양과 서양의 요리가 페어링된 곳\n매일 달라지는 글래스와인으로 전문화된 곳"
+    },
+    {
+        "name": "자매수산",
+        "category": [
+            "한식",
+            "생선회"
+        ],
+        "address": "서울특별시 강남구 역삼동 619-30",
+        "opening_hours": [
+            "매일\n14:00 - 24:00\n23:00 라스트오더"
+        ],
+        "score": {
+            "navermap": "4.3",
+            "kakaomap": "3.1"
+        },
+        "menu": "실장추천 막썰어회 43,000 | 자매 제철스페셜 59,000 | 세꼬시 45,000 | 연어회 43,000",
+        "url": "https://www.instagram.com/kangnam_jamae",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/37441575/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/27254228#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20220121_249/1642749188082xCf3f_PNG/%C7%C1%B7%CE%C7%CA.png",
+            "https://ldb-phinf.pstatic.net/20220723_5/16585481414510DuXg_JPEG/%B8%F0%B5%D2.jpg",
+            "https://ldb-phinf.pstatic.net/20220723_235/1658548143244kB4nj_PNG/%B8%B7%C8%B8.PNG"
+        ],
+        "description": "방어는 보통 8kg 이상 되면 대방어라고 합니다.\n저희 자매수산은 11~14kg급, 때로는 그 이상급의 초대방어를 하루에도 4~5마리 사용합니다. 이 말은 대방어 한마리 들여와서 며칠 동안 내놓는 가게와는 신선도에서 어마어마한 차이가 있다는 뜻입니다.\n\n저희 자매수산이 서울 5대 대방어맛집으로 유명해진 이유도 바로 그 신선함을 고객분들이 알아주시고 찾아주셔서 그런 것 아닐까요?\n\n올해부터는 고객님들에게 보답하는 의미로 각종 이벤트를 풍성하게 제공해드릴 예정입니다. 인스타그램에서 강남역 자매수산을 검색해주세요! 먹는 즐거움을 두 배로 만들어드리겠습니다!"
+    },
+    {
+        "name": "땀땀",
+        "category": [
+            "음식점",
+            "베트남음식"
+        ],
+        "address": "서울특별시 강남구 역삼동 817-31",
+        "opening_hours": [
+            "금\n11:00 - 22:00\n20:30 라스트오더",
+            "토\n11:00 - 22:00\n20:30 라스트오더",
+            "일\n11:00 - 22:00\n20:30 라스트오더",
+            "월\n11:00 - 22:00\n20:30 라스트오더",
+            "화\n11:00 - 22:00\n20:30 라스트오더",
+            "수\n11:00 - 22:00\n20:30 라스트오더",
+            "목\n11:00 - 22:00\n20:30 라스트오더\n접기",
+            "줄서는식당 6회, 22.02.21.\n2022년 2월 21일\n 소곱창쌀국수/숯불직화소고기쌀국수/돼지갈비튀김\n펼쳐보기",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "score": {
+            "navermap": "4.39",
+            "kakaomap": "3.4"
+        },
+        "menu": "짜조 넴람 (2ea) 3,000 | 포 땀 Pho tam 10,000 | 포 찐 Pho chin 11,000 | 포 므어이 Pho muoi 12,000 | 포 바쿠테 Pho bak kut the 15,000 | 포 간 Pho gan 15,000 | 포 느엉 Pho nuong 13,000 | 포 모이 Pho moi 16,000 | 포 두오이 Pho duoi 17,000 | 승 란 Suon ran 17,000 | 하노이 분짜 Hanoi Bun cha 13,000 | 껌 승 Com suon 12,000 | 코코넛 슈림프 & 크리스피 롤 5,000 | 포 루얻 Pho ruot 15,000 | 포 비 까이 Pho vi cay 12,000 | 매운 쪽갈비 쌀국수 16,000 | 매운 우삽겹 쌀국수 12,000 | 우삼겹 쌀국수 11,000",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1298530125/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1238400864#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20220221_261/16454503317562yFmi_JPEG/20220211_183614.jpg",
+            "https://ldb-phinf.pstatic.net/20171018_89/1508316569740SY2Wp_JPEG/LaXDGeV6OgWk2v5umrjjaAB9.jpg",
+            "https://ldb-phinf.pstatic.net/20171102_248/1509592621235i3bEJ_JPEG/8gIhbVICdeZKyK58cKMqt5yG.jpg"
+        ],
+        "description": "저희 땀땀에서는 베트남 전통 궁중 보양식 레서피를 바탕으로 엄선된 소고기와 사골을 24시간 동안 천천히 우려낸 육수로 맛을 낸 쌀국수와 국내에 새롭게 선보이는 다양한 베트남 보양 요리를 제공하고 있습니다.\n \n전 메뉴 포장 가능 합니다. \n쿠팡이츠와 요기요 에서 땀땀 강남 본점 전 메뉴 배달 가능 합니다."
+    },
+    {
+        "name": "삼백호집 신논현점",
+        "category": [
+            "한식",
+            "육류,고기요리"
+        ],
+        "address": "서울특별시 강남구 논현동 165-10 1층",
+        "opening_hours": [
+            "매일\n11:30 - 새벽 01:30\n새벽 01:00 라스트오더",
+            "- 삼백호집 점심영업(주말제외) 개시, 야간영업 연장!"
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "3.7"
+        },
+        "menu": "백호 소고기잔치(600g) 65,000 | 백호 돼지고기잔치(800g) 45,000 | 프리미엄 눈꽃살(200g) 29,000 | 차돌삼겹(300g) 13,000 | 돌돌삼겹(300g) 13,000 | 숙성삼겹(300g) 14,000 | 숙성목살(300g) 14,000 | 꽃항정살(200g) 16,000 | 대파육회(150g) 14,000 | 트리플퐁당치즈 4,000 | 붉은 새우구이(6마리) 6,000 | 고기 된장찌개 6,000 | 물냉면 6,000 | 비빔냉면 6,000 | 볶음밥 3,000 | 양푼이 돼지 김치찌개(점심) 9,000",
+        "url": "https://blog.naver.com/3baekho_zip",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1325798341/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/123420283#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20220906_264/1662435606258LwOu8_JPEG/%B9%E9%C8%A3%C1%FD_%B0%ED%B1%E2_%B8%F0%B5%EB.JPG",
+            "https://ldb-phinf.pstatic.net/20221011_274/1665456367806sIXQL_JPEG/%BB%EF%B9%E9%C8%A3%C1%FD_%B8%B8%BC%AE%BB%E7%C1%F8_4_%B8%F0%C0%DA%C0%CC%C5%A9.jpg",
+            "https://ldb-phinf.pstatic.net/20221011_219/1665456367582yKFMh_JPEG/%BB%EF%B9%E9%C8%A3%C1%FD_%BF%FE%C0%CC%C6%C3_%B8%F0%C0%DA%C0%CC%C5%A9.jpg"
+        ],
+        "description": "극강의 가성비, 최고의 맛! 명품 소고기 블랙앵거스와 명품 돼지고기 듀록을 맛볼 수 있는 곳! 고기로 배채우는 집, 삼백호집 신논현점입니다."
+    },
+    {
+        "name": "대우부대찌개",
+        "category": [
+            "한식",
+            "찌개,전골"
+        ],
+        "address": "서울특별시 강남구 역삼동 641-18",
+        "opening_hours": [
+            "금\n11:00 - 20:30\n15:00 - 17:00 브레이크타임\n19:30 라스트오더",
+            "토\n11:30 - 20:30\n15:00 - 17:00 브레이크타임\n19:30 라스트오더",
+            "일\n11:30 - 20:30\n15:00 - 17:00 브레이크타임\n19:30 라스트오더",
+            "월\n11:00 - 20:30\n15:00 - 17:00 브레이크타임\n19:30 라스트오더",
+            "화\n11:00 - 20:30\n15:00 - 17:00 브레이크타임\n19:30 라스트오더",
+            "수\n11:00 - 20:30\n15:00 - 17:00 브레이크타임\n19:30 라스트오더",
+            "목\n11:00 - 20:30\n15:00 - 17:00 브레이크타임\n19:30 라스트오더\n접기",
+            "수요미식회 168회, 18.05.02.\n2018년 5월 2일\n 부대찌개/소시지구이\n펼쳐보기",
+            ""
+        ],
+        "score": {
+            "navermap": "4.42",
+            "kakaomap": "3.8"
+        },
+        "menu": "부대찌개 14,000 | 등심부대찌개 23,000 | 소시지구이 14,000 | 등심구이 42,000 | 안심구이 42,000",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/11723756/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/7819490#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20160108_100/1452234419101lHoMm_JPEG/176058555678520_0.jpg",
+            "https://ldb-phinf.pstatic.net/20160108_74/1452234419185ObO67_JPEG/176058555678520_1.jpg",
+            "https://ldb-phinf.pstatic.net/20160108_136/1452234419259dFVV9_JPEG/176058555678520_2.jpg"
+        ],
+        "description": "브레이크 타임 17시까지"
+    },
+    {
+        "name": "중앙해장",
+        "category": [
+            "한식",
+            "해장국"
+        ],
+        "address": "서울특별시 강남구 대치동 996-16 육인빌딩",
+        "opening_hours": [
+            "금\n07:00 - 22:00",
+            "토\n07:00 - 22:00",
+            "일\n07:00 - 21:30",
+            "월\n11:00 - 22:00",
+            "화\n07:00 - 22:00",
+            "수\n07:00 - 22:00",
+            "목\n07:00 - 22:00"
+        ],
+        "score": {
+            "navermap": "4.42",
+            "kakaomap": "3.9"
+        },
+        "menu": "양선지해장국 12,000 | 내장탕 15,000 | 양지곰탕 14,000 | 우족탕 21,000 | 양지수육 중 42,000 | 곱창전골 중 65,000 | 곱창전골 대 98,000 | 수육추가 23,000 | 우동사리 3,000 | 전골볶음밥 3,000 | 양지수육 대 79,000",
+        "url": "http://www.joongangfnb.com",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/37703543/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/27531028#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20190309_245/1552113857839UtFiA_JPEG/R7mJPb_ud69DS-ssyhXplki1.jpg",
+            "https://ldb-phinf.pstatic.net/20210407_82/1617776980975VTQ0b_JPEG/OTnEwytjPZoPcMIB1N9sFUR2.jpeg.jpg",
+            "https://ldb-phinf.pstatic.net/20210407_140/1617776987742HemrH_JPEG/VgXgmitRl9y8ChTZkutZcN2m.jpeg.jpg"
+        ],
+        "description": "양선지해장국 / 내장탕 / 양지곰탕 \n곱창전골 / 중앙(내장)전골 \n\n국내산 최고의 재료로만 음식을 만들고 있습니다."
+    },
+    {
+        "name": "런던 베이글 뮤지엄 도산점",
+        "category": [
+            "카페,디저트",
+            "베이커리"
+        ],
+        "address": "서울특별시 강남구 신사동 642-25 1, 2층",
+        "opening_hours": [
+            "매일\n08:00 - 18:00",
+            "- 공휴일 정상영업 합니다."
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "3.8"
+        },
+        "menu": "Plain bagel 3,800 | Potato cheese bagel 5,500 | Salt butter bagel 4,700 | Everying bagel 4,700 | Sesame bagel 4,700 | Blueberry bagel 4,700 | Pretzel plain bagel 4,700 | Onion bagel 4,700 | Black olive bagel 4,700 | Basil pesto bagel 4,700 | Cinammon pecan bagel 4,700 | Fig bagel 4,700 | Dark chocolate bagel 4,900 | Pepperoni cheese 5,500 | Pretzel butter salt 5,900 | Bricklane sandwich 6,800 | Jambon butter bagel 8,500 | Spring onion pretzel 8,500 | Tomato rose soup 10,500 | Mushroom soup 12,800 | 플레인 크림치즈 -s 3,300 | 메이플 피칸 크림치즈 -s 3,800 | 쪽파 갈릭 크림치즈 -s 3,800 | 레몬커드 크림치즈 -s 3,800 | 바질 크림치즈 -s 3,800 | 얼그레이잼 크림치즈 -s 3,800 | 라즈베리 크림치즈 -s 3,800 | 블루베리 크림치즈 -s 3,800 | 무화과 호두 크림치즈 4,300 | 연어 케이퍼 크림치즈 -s 4,300",
+        "url": "https://www.instagram.com/london.bagel.museum/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1967647240/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/398628990#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221013_238/1665629671160QMvrk_JPEG/%B5%B5%BB%EA1.jpg",
+            "https://ldb-phinf.pstatic.net/20220623_241/165595407381398Hyj_JPEG/KakaoTalk_20220622_190029940_13.jpg",
+            "https://ldb-phinf.pstatic.net/20220623_81/1655949149701A7DbJ_JPEG/KakaoTalk_20220622_190029940_07.jpg"
+        ],
+        "description": "다정한 스텝과 방금 나온 베이글.\n그리고 따뜻한 수프가 기다리는\n가장 가까운 런던 속 베이글 뮤지엄,\n\n국내 어디에서도 맛볼 수 없었던\n베이글의 식감과 무드를 선보입니다 :)"
+    },
+    {
+        "name": "어거스트 힐 강남점",
+        "category": [
+            "음식점",
+            "양식"
+        ],
+        "address": "서울특별시 강남구 역삼동 616-18",
+        "opening_hours": [
+            "매일\n11:30 - 22:00\n21:00 라스트오더",
+            "- 식사 이용 시간 : 100분\n접기",
+            "생방송오늘저녁 1760회, 22.04.13.\n2022년 4월 13일\n 티본스테이크/토마호크스테이크\n펼쳐보기",
+            ""
+        ],
+        "score": {
+            "navermap": "4.56",
+            "kakaomap": "4.3"
+        },
+        "menu": "수제 베이컨 콥샐러드 21,900 | 티본스테이크 (700g) 89,900 | 채끝 스테이크 (200g) 34,900 | 토마호크 스테이크 (100g당) 17,900 | 스모크치킨퀘사디아 13,900 | 비프 버터 라이스 21,900 | 새우 오일 파스타 20,900 | 비프 로제 파스타 20,900 | 포터하우스 스테이크(100g당) 13,900 | 까르보나라 10,000 | 새우 버터 라이스 21,900 | 포크찹 라이스 10,000 | 스파이스 치킨라이스 10,000 | 에이드 5,000",
+        "url": "http://www.instagram.com/augusthill_official_/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/661051254/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1124684582#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20180726_6/1532595749647s1gR9_JPEG/WkdXX8CQFijxaIKhSORjQ_i3.jpg",
+            "https://ldb-phinf.pstatic.net/20220315_144/1647321552288MiYy0_JPEG/%A4%B7%A4%B7.jpg",
+            "https://ldb-phinf.pstatic.net/20180424_100/15245525621355KHyn_JPEG/0lmELRYMnmXg392eCaam_VrB.jpg"
+        ],
+        "description": "*크리스마스 이브 , 크리스마스 예약 관련 안내\n12/1일 날 크리스마스 예약이 폭주하여 예약시스템이 다운이되며\n예약신청이 전체 취소가 되는 상황이 있었습니다 !\n현재 마감되어있는 시간을 제외하고는 다시 정상적으로 예약이 가능하니 예약확정을 받으셨던 분들께서는 다시한번 확인을 부탁드리겠습니다 감사합니다\n\n< 주차 안내 >\n* 전용 무료 주차는 2대 까지만 가능하십니다.\n (주차장 예약 불가)\n* 발렛주차는 저희와 제휴중인 ' 주차 해결사 ' 로 이용이 가능하시며\n02-535-9142 로 연락을 주시어 안내받으실수 있습니다.\n* 발렛 이용시 한대당 3000원 할인을 지원해드립니다.\n\n강남역/신논현역에 위치한 합리적인 가격의\n아메리칸 스테이크 하우스 어거스트 힐입니다.\n다양한 부문에서 선별된 탑초이스 이상급의 육류로\n일정한 온도의 저온 숙성고에서\n240시간 이상 웻에이징을 하여 육즙과 풍미를 극대\n\n합리적인 가격으로 만족스러운 식사를 제공하겠습니다."
+    },
+    {
+        "name": "이끼롤까스 가로수길점",
+        "category": [
+            "일식",
+            "돈가스"
+        ],
+        "address": "서울특별시 강남구 신사동 517-33",
+        "opening_hours": [
+            "금\n11:30 - 21:20\n20:50 라스트오더",
+            "토\n11:30 - 21:20\n16:00 - 17:00 브레이크타임\n20:50 라스트오더",
+            "일\n11:30 - 21:20\n16:00 - 17:00 브레이크타임\n20:50 라스트오더",
+            "월\n11:30 - 21:20\n16:00 - 17:00 브레이크타임\n20:50 라스트오더",
+            "화\n11:30 - 21:20\n20:50 라스트오더",
+            "수\n11:30 - 21:20\n20:50 라스트오더",
+            "목\n11:30 - 21:20\n20:50 라스트오더"
+        ],
+        "score": {
+            "navermap": "4.52",
+            "kakaomap": "3.2"
+        },
+        "menu": "치킨치즈롤까스 14,500 | 날치알치즈롤까스 14,500 | 고구마치즈돈까스 14,500 | 버섯치즈롤까스 14,500 | 카레치즈롤까스 14,500 | 스파이시치즈롤까스 14,000 | 김치치즈롤까스 14,000 | 버터장조림덮밥 13,000 | 돈까스 12,000 | 치킨까스 12,000 | 이끼리코타샐러드 7,000 | 샐러드돈까스 14,000 | 연어덮밥 13,000 | 연어리코타샐러드 12,000 | 생선치즈롤까스 14,500",
+        "url": "https://blog.naver.com/ikiroll",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/21418931/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/24009554#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20160303_27/1456972319836TcchS_JPEG/176253516178443_0.jpeg",
+            "https://ldb-phinf.pstatic.net/20160514_40/1463201493123ugg8r_JPEG/176464538152759_1.jpeg",
+            "https://ldb-phinf.pstatic.net/20160514_56/1463201493495sLNPi_JPEG/176464538152759_2.jpeg"
+        ],
+        "description": "1999년 신촌에서 시작하여 현재 가로수길에 본점이 위치해있습니다\n롤까스는 고기를 넓게 펴고 그 위에 다양한 재료와 치즈를 넣고 돌돌 말아 튀겨낸 퓨젼 요리죠, 이끼는 다양한 치즈롤까스가 인기있으며, 롤까스, 돈까스, 덮밥, 샐러드 등을 100% 수제로 요리해요. 나와 내 가족이 먹고 싶은 음식을 내자 라는 마인드로 건강하고 맛깔나는 양질의 음식을 만들고자 노력하며, 아늑하고 편안한 분위기, 내추럴하고 빈티지한 인테리어의 어반퀴진이에요."
+    },
+    {
+        "name": "중앙실비",
+        "category": [
+            "한식",
+            "곱창,막창,양"
+        ],
+        "address": "서울특별시 강남구 논현동 241-3 SK허브 1층",
+        "opening_hours": [
+            "매일\n11:30 - 22:30\n14:30 - 16:00 브레이크타임\n22:00 라스트오더",
+            "- 임시휴무"
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "5.0"
+        },
+        "menu": "특곱창전골 18,000 | 곱창전골 16,000 | 낙곱새 16,000 | 모듬수육 39,000 | 새우호박전 17,000 | 한우양무침 17,000",
+        "url": "https://jungangsilbi.modoo.at",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1914870568/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1224188224#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221107_176/1667747174309I6tKa_JPEG/20221006_002846.jpg",
+            "https://ldb-phinf.pstatic.net/20221107_229/1667747498341130U5_JPEG/1664884047721.jpg",
+            "https://ldb-phinf.pstatic.net/20220608_85/1654692569959A551q_JPEG/1652805875101.jpg"
+        ],
+        "description": "청담동에서 오랜기간 사랑을 받은 중앙소곱창이 강남구청역 2번 출구 SK허브블루 상가 1층으로 매장을 이전 하게 되었습니다\n중앙실비로 상호가 변경되었으며 보다 나은 서비스로 보답하겠습니다\n주차는 SK허브블루 상가 지하주차장 이용하세요~\n\n곱창전골맛집 선정/강남원조낙곱새/한우모듬수육\n\n- 오랜 경험과 노하우로 좋은 음식 만들기에 최선을 다합니다.\n- 내 가족이 먹는 다는 마음으로 정성껏 준비하겠습니다.\n- 최상의 재료를 통해 최고의 맛을 위해 노력하고 있습니다.\n\n중앙실비는 음식에 관해서는 절대 타협하지 않습니다.\n한번 드셔도 기억에 남고 다시 먹고 싶은 음식을 만들고자\n오늘도 내일도 앞으로도 고민하고 노력하겠습니다."
+    },
+    {
+        "name": "치즈룸 안다즈",
+        "category": [
+            "음식점",
+            "이탈리아음식"
+        ],
+        "address": "서울특별시 강남구 신사동 603 안다즈호텔 지하 1층 112호",
+        "opening_hours": [
+            "금\n10:00 - 22:30\n15:00 - 17:00 브레이크타임",
+            "토\n10:00 - 22:30\n15:00 - 17:00 브레이크타임",
+            "일\n10:00 - 22:30\n15:00 - 17:00 브레이크타임",
+            "월\n10:00 - 22:30\n15:00 - 17:00 브레이크타임",
+            "화\n10:00 - 22:30\n15:00 - 17:00 브레이크타임",
+            "수\n10:00 - 22:30\n15:00 - 17:00 브레이크타임",
+            "목\n10:00 - 22:30\n15:00 - 17:00 브레이크타임"
+        ],
+        "score": {
+            "navermap": "4.58",
+            "kakaomap": "3.9"
+        },
+        "menu": "리코타 치즈 멜트 & 비스크 20,500 | 브리 치즈 멜트 감바스 22,000 | 스크램블에그 & 프로슈토 19,500 | 소시지 w/ preserved Apricot 13,500 | 타르타르 스테이크 29,500 | 산 세바스찬 치즈케잌 9,800",
+        "url": "https://app.catchtable.co.kr/ct/main/searchRedirect?key=0921_cheeseroom",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1297585187/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/2007335630#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20190903_293/1567509810732m9vuv_JPEG/0dT13alnV1rYk2ytbYZOPzgb.jpg",
+            "https://ldb-phinf.pstatic.net/20190903_217/1567510188262ANujA_JPEG/ip1kAc0woP2-22yj5w6eGGd-.jpg",
+            "https://ldb-phinf.pstatic.net/20210216_206/1613460118299VQ1sr_JPEG/PastaRisotto_3%C6%AE%B7%AF%C7%C3_%C6%C4%C4%C9%B8%AE_%C6%C4%BD%BA%C5%B8.jpg"
+        ],
+        "description": "Witty and playful Italian restaurant cooking with 17 kinds of cheese from the world. 17개의 치즈로 요리하는 재미있고 위트있는 이탈리안 레스토랑"
+    },
+    {
+        "name": "SADDLER HAUS",
+        "category": [
+            "카페,디저트",
+            "와플"
+        ],
+        "address": "서울특별시 강남구 신사동 561-8 B1 새들러하우스",
+        "opening_hours": [
+            "매일\n11:30 - 20:00\n19:30 라스트오더",
+            "- 매장 라스트오더 7시 / 포장 라스트오더 7시30분"
+        ],
+        "score": {
+            "navermap": "4.55",
+            "kakaomap": "2.3"
+        },
+        "menu": "와플세트 17,700 | 크레뮤 4,800~5,600 | 페스츄리 바게트 6,900~10,800 | 크림 치즈 2,800~3,200 | 새들러슈페너 6,500 | 호지티 라떼 6,000",
+        "url": "https://saddler.haus/home",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/38328122/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1730645952#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20201218_131/1608217829011LqCyG_JPEG/uZ5Wv-H21I6tUT_natSA7_Vv.jpg",
+            "https://ldb-phinf.pstatic.net/20201218_285/1608217838654h9E1w_JPEG/sPSxvYuygWQo_G-PLdYsO7QP.jpg",
+            "https://ldb-phinf.pstatic.net/20220523_17/1653312368927ppXip_JPEG/F5D8BB1A-3231-4880-BD7F-034A6A460B5A.jpeg"
+        ],
+        "description": "단체 예약 문의시 인스타그램 saddlerhaus_bakery로 다이렉트보내주세요. 이 외에 납품문의 및 가맹문의는 받지않습니다 ! 추가로 다른 문의사항은 인스타그램 다이렉트 보내주시면 영업시간 마감 후 순차적으로 확인 후에 처리도와드리겠습니다 :)"
+    },
+    {
+        "name": "강남진해장",
+        "category": [
+            "음식점",
+            "한식"
+        ],
+        "address": "서울특별시 강남구 역삼동 819-4",
+        "opening_hours": [
+            "금\n00:00 - 24:00",
+            "토\n00:00 - 24:00",
+            "일\n00:00 - 21:30",
+            "월\n06:30 - 24:00",
+            "화\n00:00 - 24:00",
+            "수\n00:00 - 24:00",
+            "목\n00:00 - 24:00"
+        ],
+        "score": {
+            "navermap": "4.34",
+            "kakaomap": "3.4"
+        },
+        "menu": "양선지해장국 11,000 | 곱창전골 62,000 | 양지내장탕 14,000 | 사골곰탕 11,000 | 양지곰탕 11,000 | 수육 40,000 | 갈비-곱창전골 65,000 | 진얼큰탕 13,000 | 모듬전골 75,000",
+        "url": "https://restaurant-6311.business.site/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/993043508/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1428481536#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net//20170728_76/1501228361184KPA4Q_JPEG/1501228250629.jpg",
+            "https://ldb-phinf.pstatic.net//20170728_210/1501228440813VnFQ7_JPEG/1501228354799.jpg"
+        ],
+        "description": "가락직영점을 새롭게 오픈 하였습니다. 많은 관심 부탁드립니다."
+    },
+    {
+        "name": "울프강 스테이크하우스",
+        "category": [
+            "음식점",
+            "스테이크,립"
+        ],
+        "address": "서울특별시 강남구 청담동 89-6",
+        "opening_hours": [
+            "금(12/9)\n11:00 - 23:00",
+            "토(12/10)\n11:00 - 23:00",
+            "일(12/11)\n11:00 - 23:00",
+            "월(12/12)\n11:00 - 23:00",
+            "화(12/13)\n11:00 - 23:00",
+            "수(12/14)\n11:00 - 23:00",
+            "목(12/15)\n11:00 - 23:00"
+        ],
+        "score": {
+            "navermap": "4.5",
+            "kakaomap": "3.5"
+        },
+        "menu": "Fresh Beluga Caviar 248,000 | 포터하우스스테이크(1000g) 310,000 | W 코스 (2인 이상 이용) 220,000 | Classic코스 (2인 이상 이용) 185,000 | 청담 런치 코스 (5코스/1인) 110,000 | 청담 런치 코스 (6코스/1인) 117,000",
+        "url": "http://wolfgangssteakhouse.co.kr/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/36449091/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/26572124#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20160630_10/14672593049284cNr4_JPEG/176580533161010_27.jpeg",
+            "https://ldb-phinf.pstatic.net/20161117_201/1479367891559FRhC7_JPEG/177067566149224_6.jpeg",
+            "https://ldb-phinf.pstatic.net/20171130_62/1511980011454UbgQD_JPEG/J_1.jpg"
+        ],
+        "description": "청담동에 위치한 세계적으로 유명한 스테이크 하우스의 한국 1호점\n\n[예약안내]\n\n소중한 날, 지인분들과 특별한 식사를 위해\n저희 브랜드를 찾아주셔서 대단히 감사합니다.\n\n울프강스테이크하우스 청담에서는 온라인 예약 시스템과 카카오톡 플러스친구 상담을 추가로 운영하고 있습니다.\n\n카카오톡에서 울프강 스테이크하우스를 검색하셔서\n저희 울프강 스테이크하우스 채널에서\n예약 및 식사에 관한 상담이 가능합니다.\n\n울프강에 찾아주시는 모든 고객님들께\n더욱 나은 서비스를 제공할 수 있도록 진심을 다해 노력하는 울프강이되겠습니다.\n\n감사드립니다.\n\n- 울프강 스테이크하우스 임직원 일동 -"
+    },
+    {
+        "name": "까폼",
+        "category": [
+            "음식점",
+            "태국음식"
+        ],
+        "address": "서울특별시 강남구 신사동 655-15 지하1층",
+        "opening_hours": [
+            "금\n11:30 - 22:00",
+            "토\n11:30 - 23:00",
+            "일\n11:30 - 23:00",
+            "월\n11:30 - 22:00",
+            "화\n11:30 - 22:00",
+            "수\n11:30 - 22:00",
+            "목\n11:30 - 22:00",
+            "- 일요일 및 공휴일은 발렛파킹서비스를 운영하지 않습니다.\n접기",
+            "맛있는녀석들 343회, 21.09.17.\n2021년 9월 17일\n 돼지뼈찜/소고기쌀국수/팟타이/레드커리\n펼쳐보기",
+            "",
+            ""
+        ],
+        "score": {
+            "navermap": "4.52",
+            "kakaomap": "4.2"
+        },
+        "menu": "태국 소고기 쌀국수 10,000 | 카오카무 13,000 | 뿌님팟퐁커리 27,000 | 텃만꿍 13,000 | 팟카파오무쌉 12,000 | 쏨땀 13,000 | 똠얌꿍 20,000 | 카오팟 뿌/꿍 11,000 | 팍붕화이뎅/공심채볶음 12,000 | 그린커리 12,000 | 얌운센 14,000 | 모닝글로리 10,000 | 커무양 18,000 | 카무 24,000 | 팟타이 13,000 | 팟씨유 13,000 | 팟키마오 13,000 | 낭까이덧 8,000 | 텃만꿍(4pcs) 13,000 | 카오만 까이 13,000",
+        "url": "http://instagram.com/krap_pom",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/38969614/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/558503389#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20181006_229/1538826452177NHmLK_JPEG/vIM3pc2u9RZcltsW_s7nHvBy.jpg",
+            "https://ldb-phinf.pstatic.net/20181006_117/1538826347368h7vCA_JPEG/RcbsC_CY477wba_MxssOn2Mh.jpg",
+            "https://ldb-phinf.pstatic.net/20181006_179/1538826347021wk5ie_JPEG/1r0SqKS5rEGQCbmxlTpPKnuV.jpg"
+        ],
+        "description": "한국화되지 않은 진짜 현지의 태국맛을 느껴보세요."
+    },
+    {
+        "name": "스케줄청담",
+        "category": [
+            "음식점",
+            "양식"
+        ],
+        "address": "서울특별시 강남구 청담동 90-19 1층",
+        "opening_hours": [
+            "매일\n11:00 - 새벽 05:00\n15:30 - 17:00 브레이크타임\n22:00 - 22:30 브레이크타임",
+            "- 브레이크 타임에도 카페와 디저트는 이용 가능 합니다."
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "3.4"
+        },
+        "menu": "스케줄 김치 볶음밥 20,000 | 1++ No.9 명품 한우 채끝 75,000 | 블랙 트러플 크림 뇨끼 35,000 | 1++ No.9 채끝등심 150g & 우니 59,000 | 런치 와규 스테이크 38,000 | 콜키지 - 750ml 와인 30,000 | 콜키지 - 1L 와인 50,000 | 콜키지 - 하드리퀴드 50,000 | 콜키지 - 1L 하드 리퀴드 70,000 | 자몽에이드 12,000 | 유자 에이드 12,000 | 오미자에이드 12,000 | 에스프레소 프라푸치노 12,000 | 애플망고주스 14,000 | 아인슈페너 12,000 | 생딸기라떼 12,000 | 사이다 5,000 | 미숫가루 프라푸치노 12,000 | GAAGENDAZS SHAKE 15,000 | 로얄밀크티 12,000 | ADE 레몬 12,000 | COCKTAIL 모히또 딸기 16,000 | COCKTAIL 모히또 16,000 | 딸기 쉐이크 15,000 | SINGLE TEA 11,000 | 그린티 라떼 10,000 | 시그니처커피 12,000 | 아메리카노 9,000 | 피칸파이 & 하겐다즈 바닐라 12,000 | 딸기 생크림 케이크 12,000 | 바스크 치즈 케이크 12,000 | 생딸기 & 누텔라 크로와상 15,000 | 생딸기 버터 와플 24,000 | 생딸기 벌집 크로플 26,000 | 마카다미아 브라운치즈 19,000 | 마카다미아 인절미 19,000 | 애플망고 벌집빙수 49,000 | 지리산 벌집 멜론 빙수 29,000 | 생딸기 벌집 빙수 30,000 | 샤인머스캣 벌집 빙수 35,000 | 치즈 & 과일 플레이트 38,000 | 3단 제철 과일 플레이트 38,000 | 와규 포케플레이트 19,000 | 베이컨 시저 샐러드 22,000 | 부라타 치즈 25,000 | 여수 돌문어 콩피 38,000 | 트러플 프렌치 프라이 16,000 | 등심 가츠샌드 22,000 | 소갈비 & 매쉬포테이토 54,000 | 제철 해산물 떡볶이 39,000 | 차돌 대파 떡볶이 29,000 | 콘 스프 11,000 | 감베리 로제 파스타 28,000 | 바지락 주키니 28,000 | 보타르가 레몬 딜 버터 29,000 | 콰트로 치즈 크림 28,000 | 라구마이알레 26,000 | 와규 스테이크 리조또 34,000 | 랍스터 비스큐 파스타 (활 랍스터) 36,000 | 블랙 트러플 크림 리조또 33,000 | 우니 오일 파스타 35,000 | ",
+        "url": "http://schedulecorp.co.kr/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1793289940/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1950123074#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20220303_56/1646290250111gW8ae_JPEG/IM_01882.jpg",
+            "https://ldb-phinf.pstatic.net/20220203_27/1643872978858CC8v5_JPEG/IM_01880_B.jpg",
+            "https://ldb-phinf.pstatic.net/20211228_77/1640665226637YDCqW_JPEG/%BD%BA%C6%E4%BC%C83%B4%DC%B0%FA%C0%CF%C7%C3%B7%B9%C0%CC%C6%AE_pairing.jpg"
+        ],
+        "description": "- 캐치테이블 (catch table) 링크를 통해 예약 가능합니다.\nhttps://app.catchtable.co.kr/ct/shop/schedule_cheongdam\n매장이 바쁜 경우 전화응대가 어려울 수 있다는 점 양해 부탁드리겠습니다.\n\n스케줄은 다양한 음식, 디저트와 함께 주류 및 최상의 서비스까지 한 자리에서 즐길 수 있는 트렌디한 복합 문화 공간입니다.\n\n1. 청담 최대 규모 다이닝 & 라운지를 보유한 스케줄 청담의 고유컨셉은 산뜻한 테라스뷰와 고급스럽고 세련된 내부 인테리어입니다. 아늑한분위기에서 여유가득 남녀노소 편안하게 이용가능한 공간입니다.\n\n2. 트러플, 우니, 애플망고 등 스케줄에서 제공하는 모든 식재료는 각 전문업체에게 직접 공수받아 최상급으로 서비스해드리고 있습니다.\n\n3. 스케줄청담 룸 예약 시 고객님께서 원하시는 이니셜로 풍선데코를 준비해드리는 서비스를 진행하고 있습니다. 블루투스 스피커, 직접 조절 가능한 조광기, LED 조명 등 모든것을 갖춘 파티룸에서 좋은 추억을 남기실 수 있답니다.\n\n찾아오신 고객분들께 좋은 기억으로 남을 수 있도록 스케줄청담 전직원과 매번 회의를 하고 개선점을 찾고 있습니다. 부족한 부분도 많겠지만, 점차 개선나가며 노력하겠습니다 !!"
+    },
+    {
+        "name": "미미면가 본점",
+        "category": [
+            "일식",
+            "일식당"
+        ],
+        "address": "서울특별시 강남구 신사동 521-16",
+        "opening_hours": [
+            "금\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n21:00 라스트오더",
+            "토\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n21:00 라스트오더",
+            "일\n11:30 - 21:00\n15:00 - 17:30 브레이크타임\n20:30 라스트오더",
+            "월\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n21:00 라스트오더",
+            "화\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n21:00 라스트오더",
+            "수\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n21:00 라스트오더",
+            "목\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n21:00 라스트오더",
+            "- 브레이크 타임 전 라스트오더 14:30"
+        ],
+        "score": {
+            "navermap": "4.28",
+            "kakaomap": "3.6"
+        },
+        "menu": "냉/온소바 10,000 | 새우튀김 냉소바 12,000 | 가지튀김 냉소바 12,000 | 단새우와 성게알 냉소바 20,000 | 고등어구이 온소바 20,000 | 성게알 냉소바 20,000 | 어묵튀김 냉소바 12,000 | 붕장어튀김 냉소바 17,000 | 우메보시 냉소바 11,000 | 연근새우튀김 13,000 | 까망베르치즈 튀김 12,000 | 새우튀김 데 마끼 3,000 | 단새우와 성게알 데 마끼 5,000 | 소바마끼 (4p) 6,000 | 유부초밥 3,000 | 마즙냉소바 14,000 | 소고기냉소바 13,000 | 붕장어냉소바 17,000 | 크림소바 15,000 | 특새우냉소바 2p 14,000 | 북해도프리미엄성게알 60,000 | 특새우냉소바 14,000 | 소고기와숙주(온)소바 14,000 | 모찌와가지아게다시 12,000 | 모둠튀김 11,000",
+        "url": "https://www.instagram.com/mimiholic1206/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/21693586/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/18324313#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20190406_62/1554503452471fpjTb_JPEG/pmEulYUTTxCo_Rvh07NNuYPT.jpg",
+            "https://ldb-phinf.pstatic.net/20190406_43/15545034210776xJ1t_JPEG/RO5Z8F_lvIrw1YTJ5Z72dmkL.jpg",
+            "https://ldb-phinf.pstatic.net/20190406_102/1554503496417Nh0Ep_JPEG/P2Ku0tdPXKpBajIvT86d_rVV.jpg"
+        ],
+        "description": "가게사정으로 인하여 10월 30일 저녁영업은 쉽니다.\n\n저희 미미면가는 2012년에 오픈하여 현재까지 운영중인 일본식 메밀소바 전문점입니다.\n저희는 다른 곳과 차별화를 두기 위하여 다양한 토핑과 육수에 중점을 두고 있습니다.\n온육수는 가쓰오부시와 아츠게츠리 를 사용하여 보다 풍부한 향과 맛을 즐기실 수 있습니다.\n\n조기 마감될 수 있습니다."
+    },
+    {
+        "name": "호족반 청담",
+        "category": [
+            "음식점",
+            "한식"
+        ],
+        "address": "서울특별시 강남구 신사동 646-23 1층",
+        "opening_hours": [
+            "매일\n11:30 - 21:00\n15:00 - 17:00 브레이크타임\n14:30, 20:30 라스트오더\n접기",
+            "신상출시편스토랑 139회, 22.08.05.\n2022년 8월 5일\n 들기름메밀국수\n펼쳐보기",
+            "",
+            "",
+            ""
+        ],
+        "score": {
+            "navermap": "4.34",
+            "kakaomap": "3.7"
+        },
+        "menu": "들기름 메밀국수 8,800 | 매운 들기름 메밀국수 8,800 | 버섯 들깨 칼국수탕 12,800 | 호랑이 부대찌개 12,800 | 바삭 새우 만두 13,800 | NY양념모듬갈비 48,800 | LA갈릭갈비 48,800 | 초리조 두부김치 13,800 | 갈릭 항정 수육 21,300 | 트러플 감자전 15,800 | 청담김 주먹밥 5,800",
+        "url": "https://bit.ly/hojokban_gffg",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1103092572/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/856589054#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20210517_223/1621241311673fE8iN_JPEG/k3elwYBjG2u5nu9E89bRCTht.jpg",
+            "https://ldb-phinf.pstatic.net/20221125_120/1669355149255wEvRH_JPEG/52DAF164-FE00-42AE-93BF-123BE9BE2742.JPG",
+            "https://ldb-phinf.pstatic.net/20221125_130/1669355149199palk5_JPEG/A2997D1D-7ECE-4F61-ADAA-F2DE25EE5AD7.JPG"
+        ],
+        "description": "모던 서양 한식 브랜드 호족반 (好族飯) 입니다.\n\n好 (좋을 호) 族 (겨레 족) 飯 (밥 반)\n\n훌륭한 민족의 밥 이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.\n\n예약 서비스는 제공하지 않고 있으며,\n반려동물 동반은 불가합니다.\n\n이용에 참고 및 양해 부탁드립니다.\n\n(발렛 가능합니다)"
+    },
+    {
+        "name": "세시셀라 도산공원점",
+        "category": [
+            "카페,디저트",
+            "카페"
+        ],
+        "address": "서울특별시 강남구 신사동 651-4 삼경빌딩 1층",
+        "opening_hours": [
+            "금\n11:30 - 22:00",
+            "토\n11:30 - 22:00",
+            "일\n11:30 - 22:00",
+            "월\n11:30 - 22:00",
+            "화\n11:30 - 22:00",
+            "수\n11:30 - 22:00",
+            "목\n11:30 - 22:00"
+        ],
+        "score": {
+            "navermap": "4.44",
+            "kakaomap": "3.8"
+        },
+        "menu": "당근케이크 8,800 | 와플브런체세트 14,300 | 크레이프케이크 8,800 | 오늘의티 8,700 | 초코라떼 7,200 | 뱅쇼(겨울한정) 9,800 | 녹차 9,300 | 에스프레소 더블 6,400 | 카페아메리카노 6,400 | 카푸치노 7,900 | 카페크림바나나라떼 8,500 | 카페모카 8,300",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/11886505/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/7948829#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20150831_126/1440994949528N3k7a_JPEG/11886505_0.jpg",
+            "https://ldb-phinf.pstatic.net/20200604_238/1591255594679RdguJ_JPEG/wkyYr31fg0Vvz_YSoajnwYPt.jpg",
+            "https://ldb-phinf.pstatic.net/20200604_38/1591255596963zfOr2_JPEG/jMtFLZnKXrRlegGdx90NMl7Y.jpg"
+        ],
+        "description": ""
+    },
+    {
+        "name": "진미평양냉면",
+        "category": [
+            "한식",
+            "냉면"
+        ],
+        "address": "서울특별시 강남구 논현동 115-10",
+        "opening_hours": [
+            "금\n11:00 - 21:30\n21:10 라스트오더",
+            "토\n11:00 - 21:30\n21:10 라스트오더",
+            "일\n11:00 - 21:30\n21:10 라스트오더",
+            "월\n11:00 - 21:30\n21:10 라스트오더",
+            "화\n11:00 - 21:30\n21:10 라스트오더",
+            "수\n11:00 - 21:30\n21:10 라스트오더",
+            "목\n11:00 - 21:30\n21:10 라스트오더\n접기",
+            "전지적참견시점 146회, 21.03.27.\n2021년 3월 27일\n 비빔냉면/만두\n펼쳐보기",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "score": {
+            "navermap": "4.31",
+            "kakaomap": "3.6"
+        },
+        "menu": "어복쟁반 소 60,000 | 편육(미국/호주산) 32,000 | 편육반(미국/호주산) 16,000 | 제육(국내산돼지) 30,000 | 제육반(국내산돼지) 15,000 | 불고기(호주산) 28,000 | 온면 14,000 | 냉면사리 10,000 | 접시만두 14,000 | 비빔냉면 14,000 | 만두국 14,000 | 냉면곱빼기 18,000 | 만두반 7,000 | 어복쟁반 대 90,000 | 냉면 14,000 | 쟁반고기 추가 50,000",
+        "url": "https://jinmipy.modoo.at/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/37912785/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/27584230#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20180607_51/15283397669538Mj1r_JPEG/t0rzpbFHC6QZDErtQEzlpvzZ.jpg",
+            "https://ldb-phinf.pstatic.net/20200418_177/1587218787589A1HlQ_JPEG/f3MNz4rjn4twjYQtbDw9xpBa.jpeg.jpg",
+            "https://ldb-phinf.pstatic.net/20220917_283/1663421698108mOnVs_JPEG/Screenshot_20220917-214155_TISTORY.jpg"
+        ],
+        "description": ""
+    },
+    {
+        "name": "부타이 1막",
+        "category": [
+            "일식",
+            "일식당"
+        ],
+        "address": "서울특별시 강남구 대치동 956-6",
+        "opening_hours": [
+            "금\n11:30 - 20:30\n15:00 - 17:00 브레이크타임\n14:15, 19:45 라스트오더",
+            "토\n11:30 - 20:30\n15:00 - 17:00 브레이크타임\n14:15, 19:45 라스트오더",
+            "일\n정기휴무 (매주 일요일)",
+            "월\n11:30 - 20:30\n15:00 - 17:00 브레이크타임\n14:15, 19:45 라스트오더",
+            "화\n11:30 - 20:30\n15:00 - 17:00 브레이크타임\n14:15, 19:45 라스트오더",
+            "수\n11:30 - 20:30\n15:00 - 17:00 브레이크타임\n14:15, 19:45 라스트오더",
+            "목\n11:30 - 20:30\n15:00 - 17:00 브레이크타임\n14:15, 19:45 라스트오더"
+        ],
+        "score": {
+            "navermap": "4.48",
+            "kakaomap": "3.8"
+        },
+        "menu": "마제소바 11,000 | 모리아와세카츠 32,000 | 로스카츠 정식 14,000 | 히레카츠 정식 15,000 | 가츠산도 13,000 | 히레 가츠산도 14,000 | 키마카레 11,000 | 치즈 키마카레 13,500 | 에비소바마끼 12,000",
+        "url": "https://www.instagram.com/butai.official",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1144038812/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1337569618#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20220414_66/1649924060607weHEK_JPEG/%B7%CE%B0%ED_%BA%CE%C5%B8%C0%CC_1.jpg",
+            "https://ldb-phinf.pstatic.net/20200418_11/1587198643899U4yOb_JPEG/uUSXAVR8VP60GrJ_55678SZX.jpeg.jpg",
+            "https://ldb-phinf.pstatic.net/20220414_275/1649943732365fibOC_JPEG/01_%B8%B6%C1%A6%BC%D2%B9%D9%28%C7%D7%C1%A4%BB%EC%C3%DF%B0%A1%29.jpg"
+        ],
+        "description": "마제소바&돈카츠 전문점, [부타이]는 도심 속 한 그릇의 위로를 드리는 재패니즈 캐주얼 키친입니다. 마제소바를 재해석한 '부타이 마제소바'와 오사카 방식으로 숙성한 '돈카츠'를 시그니처 메뉴로 선보인 이후, 많은 고객님들의 사랑을 받아왔습니다.\n\n부타이는 일본 전통 요리들을 팀 부타이의 방식으로 새롭게 재해석한 요리들을 선보이는 '미식의 장'이자 하나의 '무대(ぶたい)'입니다. 저희에게 '요리'는 온 힘을 다해 준비하고 끊임없는 연습과 열정으로 빚어낸 완벽한 작품을 무대에 올리는, 한 편의 뮤지컬과 닮아있습니다. 언제나 치열하게 준비한 우리의 요리들을 계속해 [부타이]라는 무대 위에 올리겠습니다."
+    },
+    {
+        "name": "농민백암순대 본점",
+        "category": [
+            "한식",
+            "순대,순댓국"
+        ],
+        "address": "서울특별시 강남구 대치동 896-33",
+        "opening_hours": [
+            "금\n11:10 - 21:00\n20:30 라스트오더",
+            "토\n11:10 - 15:30\n15:00 라스트오더",
+            "일\n정기휴무 (매주 일요일)",
+            "월\n11:10 - 21:00\n20:30 라스트오더",
+            "화\n11:10 - 21:00\n20:30 라스트오더",
+            "수\n11:10 - 21:00\n20:30 라스트오더",
+            "목\n11:10 - 21:00\n20:30 라스트오더\n접기",
+            "수요미식회 144회, 17.11.15.\n2017년 11월 15일\n 국밥/모듬수육\n펼쳐보기",
+            ""
+        ],
+        "score": {
+            "navermap": "4.51",
+            "kakaomap": "4.3"
+        },
+        "menu": "국밥 9,000 | 토종순대 12,000 | 모둠 수육 32,000 | 국밥 특 11,000 | 국밥 정식 14,000 | 술국 18,000 | 오소리감투 17,000",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/13149768/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/17163273#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20150831_139/1440994425880YuQ3V_JPEG/106470458539103_3.jpg",
+            "https://ldb-phinf.pstatic.net/20170629_102/1498695179989hIhfd_PNG/IMG_8309.PNG",
+            "https://ldb-phinf.pstatic.net/20150831_25/14409944254375mqT0_JPEG/106470458539103_1.jpg"
+        ],
+        "description": ""
+    },
+    {
+        "name": "트리오드",
+        "category": [
+            "음식점",
+            "카페,디저트"
+        ],
+        "address": "서울특별시 강남구 역삼동 649 유니언타운 L층",
+        "opening_hours": [
+            "금\n11:00 - 22:00\n21:00 라스트오더",
+            "토\n11:00 - 22:00\n21:00 라스트오더",
+            "일\n11:00 - 22:00\n21:00 라스트오더",
+            "월\n11:00 - 22:00\n21:00 라스트오더",
+            "화\n11:00 - 22:00\n21:00 라스트오더",
+            "수\n11:00 - 22:00\n21:00 라스트오더",
+            "목\n11:00 - 22:00\n21:00 라스트오더",
+            "- 9/12 단축영업 진행합니다"
+        ],
+        "score": {
+            "navermap": "4.56",
+            "kakaomap": "3.7"
+        },
+        "menu": "페어링 세트 19,000 | 아메리카노 5,500 | 딸기 케익그람 6,300 | 초코케익그람 6,000 | 레몬치즈 케익그람 6,000 | 티라미수 케익그람 6,000 | 플루토 8,500 | 피스타치오 라떼 6,600 | 라몬 에이드 6,500",
+        "url": "https://www.nextkitchencompany.com/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1285186695/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1714768076#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20210726_141/1627286934589zFDHU_PNG/AVagDazL1RCLFm3Bv-CGPGXH.PNG.png",
+            "https://ldb-phinf.pstatic.net/20210728_65/1627454923701n29JA_JPEG/fZ-MBv5X7-kHzrDbGVg-TRu5.jpg",
+            "https://ldb-phinf.pstatic.net/20210726_134/1627286934872pGR7r_PNG/H0YK87Tggl-zBl0bFnRNDPA7.PNG.png"
+        ],
+        "description": "강남 카페 트리오드는 라디오의 주파수를 맞춰 원하는 채널을 들을 수 있게 해주는 장치입니다.\n라디오 주파수를 맛추듯 고객에게 딱 맞는 취향을 찾아주는 카페입니다.\n\n트리오드는 파티셰와 셰프, 그리고 그 사이에서 중심을 잡아주는 바리스타가 함께 공명하여 빛나는 경험을 만들어주는 공간입니다."
+    },
+    {
+        "name": "무탄",
+        "category": [
+            "중식",
+            "중식당"
+        ],
+        "address": "서울특별시 강남구 신사동 613-2 1층",
+        "opening_hours": [
+            "금\n11:00 - 22:00",
+            "토\n11:00 - 22:00",
+            "일\n11:00 - 22:00",
+            "월\n11:00 - 22:00",
+            "화\n11:20 - 22:00",
+            "수\n11:00 - 22:00",
+            "목\n11:00 - 22:00",
+            "- 브레이크타임 없음. 라스트오더 20:50\n접기",
+            "줄서는식당 9회, 22.03.21.\n2022년 3월 21일\n 스테이크트러플자장면/고추유린기/마카롱멘보샤/가리비짬뽕\n펼쳐보기",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "후기"
+        },
+        "menu": "타르타르 유린기 38,000 | 스테이크 트러플 자장면 28,000 | 마카롱 멘보샤 24,000 | 고추유린기 38,000 | 무탄 탕수육 38,000 | 특제 한우탄탄면 25,000 | 전가복 70,000 | 상어지느러미찜 100,000 | 해물누룽지탕 58,000 | 오룡해삼 120,000 | 뚝배기 마파두부+볶음밥 18,000 | 쇠고기피망볶음+차이니즈번 38,000 | 깐풍기 38,000 | 팔보채 70,000 | 무탄 볶음자장면+후라이 15,000 | 고흥 가리비 짬뽕 18,000 | 고흥 쭈꾸미 돌판 짜장면 38,000 | 전가복 중 90,000 | 팔보채 중 90,000 | 게살 유산슬 소 70,000 | 게살 유산슬 중 90,000 | 자연송이 쇠고기 100,000",
+        "url": "https://app.catchtable.co.kr/ct/shop/mutan",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1044096368/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1696571508#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20201110_111/1604984990484bRKgV_JPEG/vlEKBzm7cfnFbA2FY-9SUXtI.jpg",
+            "https://ldb-phinf.pstatic.net/20201110_258/1604984991241F7FuO_JPEG/idjSrb5gfgavbRfFmAPLNgTO.jpg",
+            "https://ldb-phinf.pstatic.net/20211117_283/1637137403528R2QxL_JPEG/KakaoTalk_20211117_171244573.jpg"
+        ],
+        "description": "안녕하세요. 무탄입니다.\n넓은 홀과 프라비잇 룸이 완비되어 있습니다.\n예약은 현재 룸만 가능하며(성인 6인 이상),\n일반 테이블은 예약이 불가능한 점 양해부탁드립니다.\n룸 예약시 매장으로 연락 주시면 일정 확인 도와드리겠습니다\n평소에 전화량이 많아 연결이 어려울 수도 있습니다.\n이 점 양해부탁드리며 라스트 오더는 20시 50분 입니다.\n\n또한 저희 무탄은 전 직원 마스크 착용 중이며, 매일 방역소독을 실시하고 있습니다.\n고객님들의 안전을 위해 마스크 착용을 의무화 하고 있으니 양해 부탁드립니다.\n고객님을 위해 최선을 다하겠습니다.\n\n※주차안내\n-유료발렛파킹 가능합니다.(현금결제 또는 계좌이체)"
+    },
+    {
+        "name": "쮸즈",
+        "category": [
+            "중식",
+            "딤섬,중식만두"
+        ],
+        "address": "서울특별시 강남구 신사동 540-4",
+        "opening_hours": [
+            "금\n11:30 - 21:00\n15:00 - 17:00 브레이크타임",
+            "토\n11:30 - 21:00\n15:00 - 17:00 브레이크타임",
+            "일\n정기휴무 (매주 일요일)",
+            "월\n정기휴무 (매주 월요일)",
+            "화\n11:30 - 21:00\n15:00 - 17:00 브레이크타임",
+            "수\n11:30 - 21:00\n15:00 - 17:00 브레이크타임",
+            "목\n11:30 - 21:00\n15:00 - 17:00 브레이크타임",
+            "- 임시 휴무"
+        ],
+        "score": {
+            "navermap": "4.37",
+            "kakaomap": "3.6"
+        },
+        "menu": "소룡포 4,000 | 딴딴면 8,000 | 새우춘권 4,000 | 완탕면 9,000 | 마라새우 15,000 | 란주식 비빔면 9,000 | 매콤완탕 6,000 | 야채춘권 3,000 | 우육면 8,500 | 청경채 4,000 | 매콤새우완탕 7,500 | 양상추 5,000 | 사천식닭날개 14,000 | 돼지고기완탕스프 7,000 | 새우완탕스프 9,000 | 새우탕면 12,000",
+        "url": "https://www.facebook.com/jooos.dimsum",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/34786487/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/24371711#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20150901_73/1441110006820xDlk9_JPEG/156370526675934_0.jpeg",
+            "https://ldb-phinf.pstatic.net/20150901_200/1441110007050lTNfl_JPEG/156370526675934_1.jpeg",
+            "https://ldb-phinf.pstatic.net/20150901_162/14411100073159fBEq_JPEG/156370526675934_2.jpeg"
+        ],
+        "description": "정통 광동식 딤섬과 홍콩식 면류를 한국에서 캐쥬얼하게 만나실 수 있는 레스토랑 입니다.\n\n- 딤섬류 _ 소룡표, 쇼마이, 매콤완탕\n- 딴딴면, 우육면, 완탕면\n- 칭따오 맥주"
+    },
+    {
+        "name": "을지다락 강남",
+        "category": [
+            "음식점",
+            "양식"
+        ],
+        "address": "서울특별시 강남구 역삼동 818-6 2층",
+        "opening_hours": [
+            "금\n11:30 - 21:00\n15:00 - 16:30 브레이크타임\n14:30, 20:30 라스트오더",
+            "토\n11:30 - 21:00\n20:30 라스트오더",
+            "일\n11:30 - 21:00\n20:30 라스트오더",
+            "월\n11:30 - 21:00\n15:00 - 16:30 브레이크타임\n14:30, 20:30 라스트오더",
+            "화\n11:30 - 21:00\n15:00 - 16:30 브레이크타임\n14:30, 20:30 라스트오더",
+            "수\n11:30 - 21:00\n15:00 - 16:30 브레이크타임\n14:30, 20:30 라스트오더",
+            "목\n11:30 - 21:00\n15:00 - 16:30 브레이크타임\n14:30, 20:30 라스트오더"
+        ],
+        "score": {
+            "navermap": "4.53",
+            "kakaomap": "후기"
+        },
+        "menu": "다락오므라이스 15,000 | 다락 로-제 17,000 | 가츠산도 12,000 | 찹목살스테이크 20,000 | 매콤크림파스타 17,000 | 핫스파이시해산물파스타 17,000 | 게살매콤리조또 17,000 | 차돌박이들깨파스타 17,000 | 시래기미소파스타 17,000 | 다락뇨끼 17,000 | 크림어니언감자튀김 9,000 | 트러플감자튀김 9,000 | 얼그레이하이볼 8,900 | 와인인어글라스_까베르네소비뇽 7,900 | 다락에이드 6,900 | 강남에이드 6,900",
+        "url": "http://www.instagram.com/euljidarak_gangnam",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1483096423/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/714157392#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20220427_237/165102764126107Ghf_JPEG/1.jpg",
+            "https://ldb-phinf.pstatic.net/20220427_187/1651027639879JsOXz_JPEG/2.jpg",
+            "https://ldb-phinf.pstatic.net/20220427_275/1651027641438E4N1q_JPEG/3.jpg"
+        ],
+        "description": "[ 라스트오더 안내 ]\n평일 (월-금)\n런치 - 14시30분 / 디너 - 20시 30분\n\n주말 (토-일)\n디너 - 20시 30분\n*런치 브레이크타임 X\n\n[ 매장설명 ]\n오므라이스 & 파스타 전문점\n강남역맛집 을지다락 강남입니다!\n\n저희 을지다락 강남은 맛있는 음식점, 훌륭한 데이트 맛집을 넘어\n특별한 경험과 추억을 선물하고자합니다 :)\n\n! 스르륵 촥, 하고 갈라지는 다락의 시그니쳐 오므라이스\n! 다양하고 감각적인 플레이팅의 파스타 맛집\n! 깔끔한 인테리어와 햇살감성의 분위기\n\n강남맛집 을지다락 강남\n*예약은 네이버예약을 통해 가능합니다\n*반려동물 입장은 어려운 점 양해 부탁드리겠습니다."
+    },
+    {
+        "name": "신동궁감자탕 역삼본점",
+        "category": [
+            "한식",
+            "감자탕"
+        ],
+        "address": "서울특별시 강남구 역삼동 823-35",
+        "opening_hours": [
+            "매일\n00:00 - 24:00"
+        ],
+        "score": {
+            "navermap": "4.3",
+            "kakaomap": "3.5"
+        },
+        "menu": "감자탕 소 32,000 | 감자탕 중 38,000 | 감자탕 대 44,000 | 뼈 숯불구이 소 36,000 | 뼈 숯불구이 중 42,000 | 뼈 숯불구이 대 48,000 | 뼈찜 소 36,000 | 뼈찜- 중 42,000 | 뼈찜- 대 48,000 | 뼈 해장국 9,000 | 뚝배기 불고기 9,000 | 묵은지김치찜 9,000 | 낙지뚝배기 9,000 | 뼈추가- 탕 20,000 | 뼈추가- 숯불 22,000 | 뼈추가- 찜 22,000 | 볶음밥 3,000",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/11832088/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/7983060#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20190707_41/15624766099611yt7l_JPEG/PErocq1KZWRjtp2oqLcMUW3I.jpeg.jpg",
+            "https://ldb-phinf.pstatic.net/20190707_206/1562476625409l5bYL_JPEG/C3yXJj4j7T_NiSVXmdjXPwv5.jpeg.jpg",
+            "https://ldb-phinf.pstatic.net/20150901_165/1441049769032BsCtX_JPEG/11832088_0.jpg"
+        ],
+        "description": "육질이 우수한 최상의 목뼈와 국내산 사골로 장시간 우려낸 진한 국물 맛에, 신동궁만의 노하우인 부드러우면서 씹으면 쫄깃함을 맛볼 수 있는 우거지와 각종 신선한 야채들이 어우러진 맛의 신동궁 감자탕. 자체 개발한 뼈 숯불구이도 방송에 소개된 요리로 인기 메뉴."
+    },
+    {
+        "name": "뱃고동",
+        "category": [
+            "한식",
+            "낙지요리"
+        ],
+        "address": "서울특별시 강남구 신사동 663",
+        "opening_hours": [
+            "금\n11:30 - 22:00",
+            "토\n12:00 - 22:00",
+            "일\n12:00 - 22:00",
+            "월\n11:30 - 22:00",
+            "화\n11:30 - 22:00",
+            "수\n11:30 - 22:00",
+            "목\n11:30 - 22:00\n접기",
+            "맛있는녀석들 290회, 20.09.11.\n2020년 9월 11일\n 오징어불고기/오징어전골/오징어불고기볶음밥\n펼쳐보기",
+            "",
+            "",
+            ""
+        ],
+        "score": {
+            "navermap": "4.28",
+            "kakaomap": "3.5"
+        },
+        "menu": "오징어불고기백반 8,000 | 낙지불고기백반 8,500 | 산낙지불고기 28,000 | 낙지불고기 16,000 | 오징어불고기 15,000 | 낙지전골 16,000 | 오징어전골 15,000 | 오징어튀김 12,000 | 산낙지연포탕 30,000 | 산낙지데침 30,000 | 산낙지 30,000 | 산낙지전골 28,000 | 오징어데침 12,000 | 낙지빈대떡 8,000 | 해물파전 12,000 | 조재탕 22,000",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/11700226/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/25046575#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20160524_83/1464082807645dgV6r_JPEG/176474587027493_0.jpeg",
+            "https://ldb-phinf.pstatic.net/20160524_261/14640828077718ecLF_JPEG/176474587027493_1.jpeg",
+            "https://ldb-phinf.pstatic.net/20160524_166/1464082807933Wr9WX_JPEG/176474587027493_2.jpeg"
+        ],
+        "description": "압구정 로데오 맛집 뱃고동입니다.정성으로 보답하겠습니다"
+    },
+    {
+        "name": "오아시스 청담점",
+        "category": [
+            "음식점",
+            "브런치"
+        ],
+        "address": "서울특별시 강남구 청담동 88-5 영빌딩 1층",
+        "opening_hours": [
+            "금\n09:00 - 18:00\n17:00 라스트오더",
+            "토\n09:00 - 18:00\n17:00 라스트오더",
+            "일\n09:00 - 18:00\n17:00 라스트오더",
+            "월\n09:00 - 18:00\n17:00 라스트오더",
+            "화\n09:00 - 18:00\n17:00 라스트오더",
+            "수\n09:00 - 18:00\n17:00 라스트오더",
+            "목\n09:00 - 18:00\n17:00 라스트오더",
+            "- 청담점은 예약이 불가한 점 양해 바랍니다."
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "3.4"
+        },
+        "menu": "타이 누들 샐러드 해물 26,000 | 치킨 아보카도 샐러드 23,000 | 런치 파스타 25,000 | 애플햄치즈프렌치토스트 23,000 | 에그 베네딕트 훈제연어 23,000 | 바나나 호두 팬케익 23,000 | 버섯&리코타 브루스게타 23,000",
+        "url": "http://www.instagram.com/oasisbrunch",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/13117552/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/11354494#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20200820_170/15978493649861qCCG_JPEG/8gP1qGQx9mZNaKd7mkwn0jyw.jpg",
+            "https://ldb-phinf.pstatic.net/20200820_276/1597849434263wfk6c_JPEG/8gFSmIzAsCZiRTkKOUp3UtDp.jpg",
+            "https://ldb-phinf.pstatic.net/20200820_34/1597849457870qQjIA_JPEG/Qr5xy0QDsZK7IAUN1vRYovan.jpg"
+        ],
+        "description": ""
+    },
+    {
+        "name": "텍사스데브라질 압구정점",
+        "category": [
+            "음식점",
+            "스테이크,립"
+        ],
+        "address": "서울특별시 강남구 신사동 603 안다즈 호텔 지하 1층",
+        "opening_hours": [
+            "금\n11:30 - 22:00\n16:00 - 17:30 브레이크타임\n21:30 라스트오더",
+            "토\n11:30 - 22:00\n16:00 - 17:00 브레이크타임\n21:30 라스트오더",
+            "일\n11:30 - 22:00\n16:00 - 17:00 브레이크타임\n21:30 라스트오더",
+            "월\n11:30 - 22:00\n16:00 - 17:30 브레이크타임\n21:30 라스트오더",
+            "화\n11:30 - 22:00\n16:00 - 17:30 브레이크타임\n21:30 라스트오더",
+            "수\n11:30 - 22:00\n16:00 - 17:30 브레이크타임\n21:30 라스트오더",
+            "목\n11:30 - 22:00\n16:00 - 17:30 브레이크타임\n21:30 라스트오더\n접기",
+            "생방송투데이 2729회, 20.12.30.\n2020년 12월 30일\n 슈하스코\n펼쳐보기",
+            ""
+        ],
+        "score": {
+            "navermap": "4.34",
+            "kakaomap": "3.7"
+        },
+        "menu": "런치 슈하스코 (9종 무한제공) 53,000 | 디너 슈하스코 (15종 무한제공) 68,000",
+        "url": "http://www.texasdebrazil.co.kr/",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1675303081/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1248615345#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20190909_127/1567996930689Ihuo1_JPEG/vLUoaRM9oQlsgxtXAC7IqKJV.JPG.jpg",
+            "https://ldb-phinf.pstatic.net/20190909_139/1567996930634DlnOo_JPEG/jyq0aSt8Hz9g6LmOHD0HJRrf.JPG.jpg",
+            "https://ldb-phinf.pstatic.net/20190909_119/1567996934048pQkhk_JPEG/AevaunlRoXnWRlcBZ_IZGd3B.JPG.jpg"
+        ],
+        "description": "텍사스 데 브라질은 미주지역을 중심으로 여러 국가에서 매장을 운영하는 글로벌 브랜드로, 한국에서는 (주)썬앳푸드를 통해 운영되고 있습니다.\n\n15가지의 브라질 정통 스테이크인 슈하스코와 50여가지의 신선한 계절 샐러드를 함께 즐길 수 있으며 고객이 계신 테이블로 카버가 찾아가 스테이크를 직접 카빙 서비스해드리기에, 원하시는 부위별로 마음껏 골라 드실 수 있습니다.\n\n맛과 재미가 공존하는 브라질에서 열정의 나라 브라질만의 놀라운 맛과 멋을 경험해 보세요.\n\n텍사스 데 브라질 압구정점 02-3442-7734"
+    },
+    {
+        "name": "팀호완 삼성점",
+        "category": [
+            "중식",
+            "딤섬,중식만두"
+        ],
+        "address": "서울특별시 강남구 삼성동 148-15 1층",
+        "opening_hours": [
+            "금\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n20:30 라스트오더",
+            "토\n11:30 - 21:30\n15:00 - 17:00 브레이크타임\n20:30 라스트오더",
+            "일\n11:30 - 21:30\n15:00 - 17:00 브레이크타임\n20:30 라스트오더",
+            "월\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n20:30 라스트오더",
+            "화\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n20:30 라스트오더",
+            "수\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n20:30 라스트오더",
+            "목\n11:30 - 21:30\n15:00 - 17:30 브레이크타임\n20:30 라스트오더"
+        ],
+        "score": {
+            "navermap": "4.38",
+            "kakaomap": "3.5"
+        },
+        "menu": "차슈바오 7,000 | 하가우 6,000 | 샤오마이 6,500 | 차슈 라이스 롤 6,000 | 새우 라이스 롤 7,000 | 두유피 새우 춘권 7,000 | 사천식 완탕 8,000 | 연잎밥 7,000 | 양저우 볶음밥 8,000 | X.O. 차슈 볶음밥 8,000 | 홍콩식 우육면 10,000 | 홍콩식 완탕면 9,000 | 홍콩식 에그타르트 4,000 | 홍콩식무케익 6,000 | 닭고기 춘권 7,000 | 오징어 튀김 7,000 | 홍콩식 콘지 6,000 | 부채교 6,500 | 두유피롤 6,500 | 돼지갈비찜 6,000 | 두유피새우 춘권 7,000 | 스폰지 케익 5,000 | 국화 알로에 젤리 4,000",
+        "url": "http://www.facebook.com/TimHoWanKR",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1209180080/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1770731230#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20200724_40/1595567930452F6jtR_JPEG/%C6%C0%C8%A3%BF%CF_%B8%DE%B4%BA%BA%CF_%C7%A5%C1%F6.JPG",
+            "https://ldb-phinf.pstatic.net/20220717_120/1658062785148sm4Ki_JPEG/Screenshot_20220717-215815_Samsung_Internet.jpg"
+        ],
+        "description": "미쉐린가이드 서울 2023 빕그루망 선정 된 딤섬 레스토랑"
+    },
+    {
+        "name": "허머스키친",
+        "category": [
+            "음식점",
+            "아시아음식"
+        ],
+        "address": "서울특별시 강남구 삼성동 159-8 파르나스몰 지하 1층 F-26호",
+        "opening_hours": [
+            "매일\n11:00 - 22:00"
+        ],
+        "score": {
+            "navermap": "4.46",
+            "kakaomap": "3.7"
+        },
+        "menu": "마살라로제치킨 Masala Rose 19,800 | 스매쉬드 포테이토 5,800 | 팔라펠 샐러드 10,800 | 치킨샐러드 11,800 | 아보카도샐러드 12,300 | 치킨샥슈카 15,800 | 부채살 스테이크 샥슈카 17,800 | 버터치킨커리 10,800 | 칠리치킨커리 10,800 | 포테이토&쉬림프 커리 10,800 | 치킨케밥 23,800 | 믹스케밥 34,800 | 허머스 6,400 | 새우샥슈카 16,800 | 양고기 케밥 26,800 | 소고기 케밥 27,800 | 네가지 치즈가 올라간 피타 18,300 | 허니갈릭치킨 피타 19,800",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/38500970/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/2022806150#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221102_101/1667354088216VARXI_JPEG/1667354054285.jpg"
+        ],
+        "description": "중동 전통요리 및 현대적으로 재해석한 중동요리를 선보이는 Contemporary middle eastern casual dining"
+    },
+    {
+        "name": "리북집",
+        "category": [
+            "한식",
+            "족발,보쌈"
+        ],
+        "address": "서울특별시 강남구 논현동 163-3",
+        "opening_hours": [
+            "목\n11:00 - 새벽 00:30",
+            "금\n11:00 - 새벽 00:30",
+            "토\n11:00 - 새벽 00:30",
+            "일\n11:00 - 23:00",
+            "월\n11:00 - 새벽 00:30",
+            "화\n11:00 - 새벽 00:30",
+            "수\n11:00 - 새벽 00:30\n접기",
+            "생방송투데이 3183회, 22.12.02.\n2022년 12월 2일\n 족발\n펼쳐보기",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "score": {
+            "navermap": "4.39",
+            "kakaomap": "3.8"
+        },
+        "menu": "족발(앞발) 38,000 | 냉채족발(특미) 38,000 | 매운족발 35,000 | 보쌈 38,000 | 냉채해파리 추가 8,000 | 쟁반국수 13,000 | 해물파전 16,000 | 감자전 13,000 | 해물계란탕 12,000 | 돼지김치찌개 13,000 | 점심메뉴 (돌솥밥)보쌈정식 11,000 | 점심메뉴 (돌솥밥)해물순두부 9,000 | 점심메뉴(돌솥밥)우렁쌈밥 9,000 | 점심메뉴 솥밥+제육볶음 9,000 | 점심메뉴 (돌솥밥)제육볶음 10,000",
+        "url": "",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/13419591/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/12435058#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20180207_37/1517980183141J27s6_PNG/PITu1hiGlKJ6FCdKBjh2YtPc.png",
+            "https://ldb-phinf.pstatic.net/20151104_61/1446625270547M0H3L_JPEG/167054575129193_0.jpg",
+            "https://ldb-phinf.pstatic.net/20151104_165/1446625270638gbksB_JPEG/167054575129193_1.jpg"
+        ],
+        "description": "논현동 영동 시장 근처, 냉채 족발이 인기인 족발주점입니다. \n순수 국내산 돼지의 앞발만을 사용하여 전통가마솥에 직접 조리하기 때문에 더욱 쫄깃하고 맛있는 족발을 드실 수 있습니다.\n갖가지 한방재료를 첨가하여 전통가마솥에서 삶아낸 담백한 족발이 대표메뉴이며, 얇게 저민 족발에 오이와 해파리를 넣고, 겨자 소스로 새콤하게 맛을 낸 냉채 족발도 별미입니다.\n그외 감자전, 해물 파전, 모둠전 등의 부침개와 쟁반국수도 인기메뉴입니다."
+    },
+    {
+        "name": "금토일샴페인빠 압구정로데오점",
+        "category": [
+            "술집",
+            "와인"
+        ],
+        "address": "서울특별시 강남구 신사동 654-7 2층",
+        "opening_hours": [
+            "목\n17:00 - 새벽 01:00",
+            "금\n17:00 - 새벽 03:00",
+            "토\n15:00 - 새벽 03:00",
+            "일\n15:00 - 새벽 01:00",
+            "월\n17:00 - 새벽 01:00",
+            "화\n17:00 - 새벽 01:00",
+            "수\n17:00 - 새벽 01:00",
+            "- 11월14일 임시휴무"
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "0.0"
+        },
+        "menu": "참치마요김밥 18,000 | 태안 갑오징어 플란챠 18,000 | 삼배체굴 변동가격(업주문의) | 샴페인 단새우 셰비체 22,000 | 멘치까스 9,000 | 긴자풍 냉츠케멘 18,000 | 바르셀로나 하몽샌드 9,000 | 고성 피문어 카르파쵸 24,000 | 보케리아 꼴뚜기 16,000",
+        "url": "https://www.instagram.com/shabba_i",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1934533595/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1617415747#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221124_112/1669281546148t7Wdh_JPEG/1668309695465.jpg",
+            "https://ldb-phinf.pstatic.net/20221111_148/16681311194897tEFh_JPEG/matjjaengeee-16529421477404.jpg",
+            "https://ldb-phinf.pstatic.net/20221124_201/1669281546076PwVx7_JPEG/1668075346915.jpg"
+        ],
+        "description": "을지로, 한남동 금샤빠가\n압구정로데오점을 오픈하였습니다.\n\n샴페인, 화이트와 어울리는 제철 해산물과\n시즌마다 바뀌는 소요리들을 준비했어요.\n\n팝업으로 시작한 공간인 만큼\n저희는 판만 깔았습니다.\n\n내 맘대로 되는게 1도 없는 세상에\n서로에게 위로가 되고\n즐거움이 되는 공간이 되길 바래요.\n\n여러분이 키워주세요. 따르겠습니다.\n\n주변 압구정 맛집들,\n외부 음식 반입 <환영>합니다.\n포장, 배달 시켜드셔도 O.K.\n\n하우스 스파클링은 1병에 38,000원부터 시작,\n샴페인은 가격 보시면 아시겠지만 저렴합니다.\n\n대신 1인당 자릿값이 1만원씩 있어요.\n\n예약은 <캐치테이블>과\n<매장전화>로 도와드리겠습니다.\n\n자리가 있다면 워크인도 가능하니 전화주세요.\n개처럼 일하겠습니다. 열심히 살겠습니다!"
+    },
+    {
+        "name": "구구당",
+        "category": [
+            "음식점",
+            "퓨전음식"
+        ],
+        "address": "서울특별시 강남구 역삼동 617-6 구구당",
+        "opening_hours": [
+            "매일\n11:30 - 22:00\n21:00 라스트오더"
+        ],
+        "score": {
+            "navermap": "4.51",
+            "kakaomap": "3.6"
+        },
+        "menu": "홍콩 파스타 18,900 | 버섯 소이 파스타 16,900 | 딴딴 라구 파스타 17,900 | 치즈 라구 그라탕 17,900 | 홍콩 큐브 스테이크 22,900 | 블랙페퍼 큐브 스테이크 22,900 | 새우 볶음밥 12,900 | 우육탕면 16,900 | 왕새우탕면 16,900 | 치킨 차오멘 18,900 | 구구당 멘보샤 15,900 | 둥베이 꿔바로우 21,900 | 구구당 홍콩토스트 8,000 | 파이황과 7,000 | 연유꽃빵튀김 4,000 | set A 29,800 | set B 30,000 | set C 37,000 | set D 63,000 | 블루레몬 5,900 | 레드체리 5,900 | 홍콩밀크티 6,900",
+        "url": "https://www.instagram.com/gugudang.seoul",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1074002248/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/260283466#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20200221_139/15822443641537tnmG_JPEG/IpvtpJ7fMzbu4uIWcuYB5gQ9.jpg",
+            "https://ldb-phinf.pstatic.net/20200221_59/1582244364640K5vk5_JPEG/GGsUxW2Lioa5wiaLYBubnNsq.jpg",
+            "https://ldb-phinf.pstatic.net/20190916_230/1568609815351TmflE_JPEG/D30VFhUW085eZ_gkBHyioseG.jpg"
+        ],
+        "description": "맛있는 음식을 먹어 즐겁고, 좋은 사람과 재밌는 이야기가 이어지는 공간, 구구당(口口堂)입니다."
+    },
+    {
+        "name": "마일스톤 커피",
+        "category": [
+            "카페,디저트",
+            "카페"
+        ],
+        "address": "서울특별시 강남구 신사동 554-4",
+        "opening_hours": [
+            "금\n10:00 - 21:00\n20:50 라스트오더",
+            "토\n10:00 - 21:00\n20:50 라스트오더",
+            "일\n10:00 - 21:00\n20:50 라스트오더",
+            "월\n10:00 - 21:00\n20:50 라스트오더",
+            "화\n10:00 - 21:00\n20:50 라스트오더",
+            "수\n10:00 - 21:00\n20:50 라스트오더",
+            "목\n10:00 - 21:00\n20:50 라스트오더",
+            "- 휴무 안내) 인스타그램 @milestone_coffee"
+        ],
+        "score": {
+            "navermap": "4.63",
+            "kakaomap": "4.3"
+        },
+        "menu": "에스프레소 4,000 | 아메리카노 4,500 | 플랫화이트 5,000 | 바닐라라떼 5,800 | 카페라떼 5,000 | 비엔나커피 6,000 | 수제마스카포네티라미수 7,000 | 애플크럼블&아이스크림 7,000",
+        "url": "http://www.milestonecoffee.kr",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/33972716/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/22549791#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20200604_8/15912405422364IGU7_JPEG/yNl1tP7ql63NU4QaM5gu-P7e.jpg",
+            "https://ldb-phinf.pstatic.net/20190220_228/1550635655819bgdf1_JPEG/nqiXYt3Dr4cyr-tE0CYOvCi0.JPG.jpg",
+            "https://ldb-phinf.pstatic.net/20180129_142/1517211621731wLSmN_JPEG/0IKS6NKGiwzBEkQOhfSnlEav.jpeg.jpg"
+        ],
+        "description": "신사동 가로수길 메인길에서 조금만 벗어나면 나오는 한적한 골목길에 위치해 있습니다. 2014년도부터 지금까지 오랫동안 사랑받고 있는 스페셜티 커피 전문 로스터스입니다. 언제든지 누구든지 들어와서, 편안하게 맛있는 커피를 즐길 수 있는 공간을 지향합니다."
+    },
+    {
+        "name": "대막",
+        "category": [
+            "일식",
+            "일식당"
+        ],
+        "address": "서울특별시 강남구 신사동 648-19 , 1층",
+        "opening_hours": [
+            "매일\n12:00 - 21:00\n15:00 - 17:30 브레이크타임",
+            "- Last order 런치14:30/디너 20:00"
+        ],
+        "score": {
+            "navermap": "4.43",
+            "kakaomap": "3.8"
+        },
+        "menu": "(LUNCH)카이센동 SET (2인) 39,000 | (LUNCH) 사시미 SET (2인) 46,000 | 사시미 24pcs 45,000 | 사시미 12pcs 23,000 | 카이센동 22,000 | 바질소바 13,000 | 아부라소바 13,000 | (LUNCH)후토마키 SET (2인) 35,000 | 후토마키 (5pcs) 18,000 | 후토마키 (10pcs) 36,000 | 교꾸산도 (4pcs) 12,000 | 옥수수튀김 10,000 | 우니추가 20,000 | 마제소바 13,000 | (LUNCH)지라시스시 SET 2인 36,000 | 지라시스시 19,000",
+        "url": "https://www.instagram.com/daemak_",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1640488466/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/1415112461#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221206_277/1670309176263ohB7p_JPEG/0AE6CDE4-C63A-4240-84C2-C10075095055.jpeg",
+            "https://ldb-phinf.pstatic.net/20221130_7/1669782128105f1INT_JPEG/FEE24CC1-8961-4E3C-B3B7-CCE71DEF29C5.jpeg",
+            "https://ldb-phinf.pstatic.net/20181229_121/1546068061055fs1pD_JPEG/W-OS3fCFGPqeFIqEl00PI2yN.jpg"
+        ],
+        "description": "저희는 예약을 받지 않고 있으니 매장 앞에 있는 테이블링으로 웨이팅 등록 부탁 드립니다.\n\n주차는 발렛 맡겨주시면 됩니다.\n(내비에 커피빈 압구정시티점 검색하고 가셔서 커피빈 바라보시고 왼쪽 검정부스에 맡겨주시면 감사하겠습니다!)"
+    },
+    {
+        "name": "추카페 서울",
+        "category": [
+            "음식점",
+            "카페,디저트"
+        ],
+        "address": "서울특별시 강남구 청담동 118-15 1층",
+        "opening_hours": [
+            "매일\n12:00 - 20:00\n19:30 라스트오더"
+        ],
+        "score": {
+            "navermap": "",
+            "kakaomap": "5.0"
+        },
+        "menu": "JC 프레지에 16,000 | 이스파한 바닐라 무스 15,000 | 딸기 크루아상 젤라또 15,000 | 패션후르츠, 카링고 슈 13,000 | 레드커런트 둘쎄 타르트 13,000 | 오페라 15,000",
+        "url": "https://www.instagram.com/jimmychoo",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1116307470/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/590230530#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221021_30/1666330952247urw9H_JPEG/JCKR_-_CHOO_CAFE_SEOUL.jpg",
+            "https://ldb-phinf.pstatic.net/20221021_208/1666330952208zs0YL_JPEG/JCKR_-_CHOO_CAFE_SEOUL_%281%29.jpg",
+            "https://ldb-phinf.pstatic.net/20221021_76/1666330952627v5bkF_JPEG/JCKR_-_CHOO_CAFE_SEOUL_%282%29.jpg"
+        ],
+        "description": "지미추의 추 카페는 컨셉츄얼 카페 겸 팝업 스토어로,\n추 카페의 화려한 미관은 최근 시즌 브랜드의 시그니처컬러 푸시아를 강조했습니다.\n\n브랜드의 시그니처 핸드백라인인 바렌 컬렉션 내 2022 신제품 [애비뉴] 라인에서 영감을 받아 화려하고 마테라시적인 취향을 담은 조각적인 가구와 컬러감을 맞춘 카페트 그리고 한국에서 전체 [애비뉴] 라인을 만나볼 수 있는 유일한 공간 속 강렬한 내부 인테리어를 비추는 거울 포인트에 이르기까지, 카페에 들어선 순간 지미추 브랜드 그 자체처럼 당당하고 매력적인 화려함을 느낄 수 있습니다.\n\n추 카페 서울 의 운영 시간은 매일 오후 12시부터 8시까지며,\n사전 예약은 캐치테이블 앱으로 가능합니다.\n\n자세한 안내는 지미추 매장 및 지미추 카카오 채널 등에서 확인 하실 수 있습니다."
+    },
+    {
+        "name": "호두까끼형제",
+        "category": [
+            "카페,디저트",
+            "베이커리"
+        ],
+        "address": "서울특별시 강남구 도곡동 954-10 101호",
+        "opening_hours": [
+            "금\n18:00 - 20:00",
+            "토\n정기휴무 (매주 토요일)",
+            "일\n정기휴무 (매주 일요일)",
+            "월\n18:00 - 20:00",
+            "화\n18:00 - 20:00",
+            "수\n18:00 - 20:00",
+            "목\n18:00 - 20:00",
+            "- 연말 주문량이 폭증하여 당분간 임시 영업시간입니다."
+        ],
+        "score": {
+            "navermap": "4.68",
+            "kakaomap": "4.2"
+        },
+        "menu": "프리미엄 모둠파이 (홀) 31,000 | 시그니처 호두파이 (홀) 27,000 | 오리지널 피칸파이 (홀) 29,000 | 헤이즐넛 카카오파이 (홀) 32,000 | 마카다미아 치즈파이 (홀) 34,000 | 우유크림 호두파이 (홀) 31,000 | 크림치즈 호두파이 (홀) 32,000 | 넛앤크림 파이 (홀) 30,000 | 시그니처 호두파이 (조각) 3,700 | 오리지널 피칸파이 (조각) 3,900 | 헤이즐넛 카카오파이 (조각) 4,300 | 마카다미아 치즈파이 (조각) 4,500 | 우유크림 호두파이 (조각) 4,100 | 크림치즈 호두파이 (조각) 4,300 | 아메리카노 3,800 | 카페라떼 4,300 | 바닐라라떼 4,800 | 헤이즐넛라떼 4,800 | 그릭요거트 5,000",
+        "url": "http://www.instagram.com/nutcrackerbros",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1032426511/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/313181622#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20221130_220/1669809202935P5qru_JPEG/%C8%A3%B5%CE%BF%B5%BE%F7%BE%C8%B3%BB_v3-001.jpg",
+            "https://ldb-phinf.pstatic.net/20221130_261/1669815191072TNFRK_JPEG/%C8%A3%B5%CE%C5%C3%B9%E8%B0%F8%C1%F6_v1-001.jpg",
+            "https://ldb-phinf.pstatic.net/20200827_223/1598486983102IwuPE_PNG/BRo-aKQyXH3uuDFPPDminHo9.png"
+        ],
+        "description": "유기농 무설탕 호두파이와 각종 크림파이가 대표메뉴 입니다. 주차 : 별도 주차장이 없으며, 매장 앞쪽 골목 삼거리에 포장 손님 5분 이내 주차 가능합니다."
+    },
+    {
+        "name": "우와",
+        "category": [
+            "일식",
+            "일식당"
+        ],
+        "address": "서울특별시 강남구 신사동 508-8 1층",
+        "opening_hours": [
+            "금\n12:00 - 22:00\n14:30 - 17:00 브레이크타임",
+            "토\n12:00 - 22:00\n14:30 - 17:00 브레이크타임",
+            "일\n12:00 - 22:00\n14:30 - 17:00 브레이크타임",
+            "월\n정기휴무 (매주 월요일)",
+            "화\n12:00 - 22:00\n14:30 - 17:00 브레이크타임",
+            "수\n12:00 - 22:00\n14:30 - 17:00 브레이크타임",
+            "목\n12:00 - 22:00\n14:30 - 17:00 브레이크타임",
+            "- 명절 당일과 매년 1월1일은 휴무 입니다 ."
+        ],
+        "score": {
+            "navermap": "4.5",
+            "kakaomap": "3.6"
+        },
+        "menu": "클래식 오코노미야키&야키소바 16,000 | 토마토 오코노미야키& 시오 야키소바 17,000 | 하야시 오코노미야키& 바질 야키소바 18,000 | 아보카도멘타마요&바게트 9,500 | 브로콜리에비마요 16,500 | 철판 꽃갈비살 100g 19,000 | 철판 꽃갈비살 200g 38,000 | 진저&라임 하이볼 8,000 | 크랜베리&레몬 하이볼 8,000 | 토닉&시나몬 하이볼 8,000 | 산미구엘생 6,500",
+        "url": "http://instagram.com/woowaa_garosu",
+        "reviews": {
+            "navermap": "https://m.place.naver.com/restaurant/1653280910/review/visitor",
+            "kakaomap": "https://place.map.kakao.com/2136148310#comment"
+        },
+        "thumbnails": [
+            "https://ldb-phinf.pstatic.net/20191023_290/1571813467745k9xTI_JPEG/0x1nCwijhfosBEgDLCkbPi39.jpeg.jpg",
+            "https://ldb-phinf.pstatic.net/20191023_255/15718136106730A5q0_JPEG/uOA34810Fx9vIBOMkEnTKKrc.jpeg.jpg",
+            "https://ldb-phinf.pstatic.net/20180124_176/1516783266924OSYeI_JPEG/C-cAGJpZhUyq4-_wOw7P2R3L.jpg"
+        ],
+        "description": ""
+    }
+],
     };
   },
 };

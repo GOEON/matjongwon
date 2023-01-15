@@ -1,18 +1,33 @@
 <template>
   <div>
     <b-card no-body class="overflow-hidden" style="max-width: 540px;" :href="url">
-      <b-row no-gutters>
-        <b-col md="6">
-          <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
-        </b-col>
-        <b-col md="6">
-          <b-card-body :title="name" :sub-title="getCategoryName">
-            <b-card-text>
-              단숨에 양재동 주민들의 마음을 사로잡은 파티시에 부부의 빵집
-            </b-card-text>
-          </b-card-body>
-        </b-col>
-      </b-row>
+      <b-carousel class="rounded-0"
+          controls
+          indicators
+          :interval="0"
+      >
+        <b-carousel-slide
+          v-for="(item, i) in thumbnails" :key="i"
+          :img-src="item"
+        >
+        </b-carousel-slide>
+      </b-carousel>
+      <b-card-body :title="name">
+        <b-card-sub-title>
+          {{ getCategoryName }}
+          <b-img :width="20" :height="20" :src="require(`@/assets/images/kakaomap_icon.png`)" v-if="score.kakaomap"></b-img><span>{{ score.kakaomap }}</span>
+          <b-img :width="20" :height="20" :src="require(`@/assets/images/navermap_icon.png`)" v-if="score.navermap"></b-img><span>{{ score.navermap }}</span>
+        </b-card-sub-title>
+        <b-card-text>
+          {{ getDescriptions }}
+        </b-card-text>
+        <a :href="reviews.navermap" class="card-link">네이버 리뷰</a>
+        <a :href="reviews.kakaomap" class="card-link">카카오 리뷰</a>
+      </b-card-body>
+      <b-list-group flush>
+        <b-list-group-item>{{ address }}</b-list-group-item>
+        <b-list-group-item>{{ menu }}</b-list-group-item>
+      </b-list-group>
     </b-card>
   </div>
 </template>
@@ -23,16 +38,24 @@ export default {
   props: {
     name: {type: String},
     category: {type: Array},
+    description: {type: String},
     address: {type: String},
     openingHours: {type: String},
     score: {type: Object},
-    menu: {type: Object},
+    menu: {type: String},
+    thumbnails: {type: Array},
     url: {type: String},
     reviews: {type: String},
   },
   computed: {
     getCategoryName() {
       return this.category.join(", ");
+    },
+    getDescriptions() {
+      if (this.description) {
+        return this.description.substring(1,70) + "...";
+      }
+      return "";
     }
   },
   data() {

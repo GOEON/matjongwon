@@ -4,11 +4,12 @@ import AppHeader from "../layout/AppHeader";
 import AppFooter from "../layout/AppFooter";
 import MainMap from "../views/MainMap.vue";
 import MainList from "../views/MainList.vue";
+import KakaoLogin from "../views/KakaoLogin.vue";
 
 Vue.use(Router)
 
 export default new Router({
-  mode:'history', //해쉬값 제거 방식
+  mode: 'history', //해쉬값 제거 방식
   routes: [
     {
       path: "/",
@@ -27,6 +28,15 @@ export default new Router({
         default: MainList,
         footer: AppFooter
       },
+    },
+    {
+      path: '/login',
+      name: 'login',
+      components: {
+        header: AppHeader,
+        default: KakaoLogin,
+        footer: AppFooter
+      }
     }
   ]
 })

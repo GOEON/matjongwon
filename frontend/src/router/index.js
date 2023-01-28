@@ -5,6 +5,7 @@ import AppFooter from "../layout/AppFooter";
 import MainMap from "../views/MainMap.vue";
 import MainList from "../views/MainList.vue";
 import KakaoLogin from "../views/KakaoLogin.vue";
+import NaverLogin from "../views/NaverLogin.vue";
 
 Vue.use(Router)
 
@@ -35,6 +36,15 @@ export default new Router({
       components: {
         header: AppHeader,
         default: KakaoLogin,
+        footer: AppFooter
+      }
+    },
+    {
+      path: '/naver_login',
+      name: 'naver_login',
+      components: {
+        header: AppHeader,
+        default: NaverLogin,
         footer: AppFooter
       }
     }

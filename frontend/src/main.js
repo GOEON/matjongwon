@@ -11,6 +11,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.config.productionTip = false
 
 Vue.use(BootstrapVue)
+window.Kakao.init('2054ba28946d20cd47155a595045cdbc');
 
 /* eslint-disable no-new */
 new Vue({

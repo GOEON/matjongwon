@@ -32,7 +32,7 @@ export default new Router({
     },
     {
       path: "/oauth/callbacks",
-      name: "redirectUri",
+      name: "RedirectUri",
       components: {
         default: RedirectUri
       }

@@ -6,6 +6,16 @@
 
 <script>
 export default {
+  created() {
+    if (this.$route.query.code) {
+      this.setKakaoToken();
+    }
+  },
+
+  mounted() {
+    console.log("mounted");
+  },
+
   data() {
     return {
       authrization_code: "aa"
@@ -18,6 +28,34 @@ export default {
       //   naver_id_login.init_naver_id_login();
       // }
     };
+  },
+  methods: {
+    async setKakaoToken() {
+      console.log("카카오 인증 코드", this.$route.query.code);
+      const { data } = await getKakaoToken(this.$route.query.code);
+      if (data.error) {
+        alert("카카오톡 로그인 오류입니다.");
+        this.$router.go();
+        return;
+      }
+      window.Kakao.Auth.setAccessToken(data.access_token);
+      this.$cookies.set("access-token", data.access_token, "1d");
+      this.$cookies.set("refresh-token", data.refresh_token, "1d");
+      await this.setUserInfo();
+      this.$router.push({ name: "home" });
+    },
+    async setUserInfo() {
+      const res = await getKakaoUserInfo();
+      console.log(res);
+      const userInfo = {
+        name: res.kakao_account.profile.nickname,
+        platform: "kakao"
+      };
+      console.log(userInfo);
+      // this.$store.commit("setUser", userInfo);
+    }
   }
 };
 </script>
+
+<!-- https://github.com/DinnerKang/study_vue/blob/master/todo-list/front/src/services/login.js -->

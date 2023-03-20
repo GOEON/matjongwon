@@ -57,6 +57,7 @@
                   alt=""
                   width="320px"
                   height="80px"
+                  @click="naverLogin()"
                 />
               </div>
             </div>
@@ -102,10 +103,19 @@ export default {
     },
 
     kakaoLogin() {
+      console.log("kakaoLogin() called");
       const params = {
-        redirectUri: "http://localhost:8081/oauth/callbacks"
+        redirectUri: "http://localhost:8080/oauth/callbacks"
       };
       window.Kakao.Auth.authorize(params);
+    },
+
+    naverLogin() {
+      const naver_id_login = new window.naver_id_login(
+        "H7fiZLOYxRZdAdDmsOCv",
+        "http://localhost:5000/oauth/callbacks"
+      );
+      console.log("네이버 로그인");
     }
   }
 };

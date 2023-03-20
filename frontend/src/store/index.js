@@ -1,12 +1,13 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   // 글로벌 영역 상태값.
   state: {
-     gnb: '', // 선택중인 GNB
+    gnb: "", // 선택중인 GNB
+    token: "" // login token
   },
 
   mutations: {
@@ -19,5 +20,8 @@ export default new Vuex.Store({
     setGnb(state, id) {
       state.gnb = id;
     },
+    setLoginToken(state, token) {
+      state.token = token;
+    }
   }
 });

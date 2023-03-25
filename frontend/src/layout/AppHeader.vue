@@ -105,7 +105,7 @@ export default {
     kakaoLogin() {
       console.log("kakaoLogin() called");
       const params = {
-        redirectUri: "http://localhost:8080/oauth/callbacks"
+        redirectUri: "http://localhost:8081/oauth/callbacks"
       };
       window.Kakao.Auth.authorize(params);
     },

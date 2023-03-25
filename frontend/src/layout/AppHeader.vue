@@ -89,12 +89,23 @@
 </template>
 <script>
 import { mapMutations, mapState } from "vuex";
+import axios from "axios";
 
 export default {
+  
+
+  created()  {
+    console.log('AppHeader is created!!')
+  },
+
+  data() {
+    return {
+      user_info : '',
+    }
+  },
   computed: {
     ...mapState(["gnb"])
   },
-
   methods: {
     ...mapMutations(["setGnb"]),
 
@@ -103,19 +114,18 @@ export default {
     },
 
     kakaoLogin() {
-      console.log("kakaoLogin() called");
       const params = {
-        redirectUri: "http://localhost:8081/oauth/callbacks"
+        redirectUri: "http://localhost:8000/oauth/kakao/callback"
       };
       window.Kakao.Auth.authorize(params);
     },
 
     naverLogin() {
-      const naver_id_login = new window.naver_id_login(
-        "H7fiZLOYxRZdAdDmsOCv",
-        "http://localhost:5000/oauth/callbacks"
-      );
-      console.log("네이버 로그인");
+      // const naver_id_login = new window.naver_id_login(
+      //   "H7fiZLOYxRZdAdDmsOCv",
+      //   "http://localhost:5000/oauth/callbacks"
+      // );
+      console.log("네이버 로그인")
     }
   }
 };
